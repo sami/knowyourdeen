@@ -13,7 +13,7 @@ export default defineConfig({
       manifest: {
         name: 'Know Your Deen - اعرف دينك',
         short_name: 'Know Your Deen',
-        description: 'Islamic Trivia Challenge for 1-4 players',
+        description: 'Challenge your Islamic knowledge',
         theme_color: '#a8e6cf',
         background_color: '#f0fdfa',
         icons: [

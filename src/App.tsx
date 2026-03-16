@@ -211,7 +211,7 @@ export default function App() {
   // --- TEXT CONSTANTS ---
   const txt: Record<string, Record<string, string>> = {
     title: { ar: "اعرف دينك", en: "Know Your Deen" },
-    subtitle: { ar: "تحدي الثقافة الإسلامية", en: "Islamic Trivia Challenge" },
+    subtitle: { ar: "تحدى معرفتك الإسلامية", en: "Challenge your Islamic knowledge" },
     setupPlayers: { ar: "عدد اللاعبين:", en: "Number of Players:" },
     startBtn: { ar: "ابدأ اللعبة", en: "Start Game" },
     namePlaceholder: { ar: "اسم اللاعب", en: "Player Name" },
