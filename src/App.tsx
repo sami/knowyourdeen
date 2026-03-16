@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Globe, Play, CheckCircle, XCircle, RefreshCw, Trash2, AlertTriangle, Instagram } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import { questionsDB } from './data/questions';
 
 // --- SVGs ---
@@ -436,6 +437,7 @@ export default function App() {
         .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
         .animate-fade-in-up { animation: fadeInUp 0.4s ease-out forwards; }
       `}} />
+      <Analytics />
     </div>
   );
 }
