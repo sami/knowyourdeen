@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
   <defs>
     <linearGradient id="pastelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#b4eeb4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8ba88b;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#0d9488;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <path d="M294.04 46.208c-68.995 0-129.74 34.208-166.42 86.611 20.841-6.195 43.159-9.526 66.216-9.526 122.95 0 222.61 99.664 222.61 222.61 0 57.382-21.782 109.64-57.514 149.33 13.924 1.706 28.17 2.628 42.66 2.628 126.75 0 229.49-102.74 229.49-229.49 0-126.75-102.74-229.49-229.49-229.49-35.035 0-68.217 7.9-98.397 22.091z" fill="url(#pastelGradient)" />
+  <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" fill="url(#pastelGradient)" />
 </svg>
