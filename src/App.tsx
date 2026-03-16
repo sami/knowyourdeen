@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { Globe, Play, CheckCircle, XCircle, RefreshCw, Trash2, AlertTriangle } from 'lucide-react';
+import { Globe, Play, CheckCircle, XCircle, RefreshCw, Trash2, AlertTriangle, Instagram } from 'lucide-react';
 import { questionsDB } from './data/questions';
 
 // --- SVGs ---
@@ -14,19 +14,19 @@ const PLAYER_THEMES = [
   "bg-teal-50",
   "bg-blue-50",
   "bg-orange-50",
-  "bg-pink-50"
+  "bg-slate-50"
 ];
 
 const CARD_THEMES = [
   "bg-teal-100 text-teal-900 border-teal-200",
   "bg-blue-100 text-blue-900 border-blue-200",
   "bg-orange-100 text-orange-900 border-orange-200",
-  "bg-pink-100 text-pink-900 border-pink-200"
+  "bg-slate-100 text-slate-900 border-slate-200"
 ];
 
 // Static map for dynamic MoonIcon colours (ensures Tailwind detects them)
-const MOON_COLORS = ['text-teal-600', 'text-blue-600', 'text-orange-600', 'text-pink-600'];
-const PLAYER_DOT_COLORS = ['bg-teal-400', 'bg-blue-400', 'bg-orange-400', 'bg-pink-400'];
+const MOON_COLORS = ['text-teal-600', 'text-blue-600', 'text-orange-600', 'text-slate-600'];
+const PLAYER_DOT_COLORS = ['bg-teal-400', 'bg-blue-400', 'bg-orange-400', 'bg-slate-400'];
 
 // Utility: Shuffle Array
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -394,6 +394,23 @@ export default function App() {
             </button>
           </div>
         )}
+      </div>
+
+      {/* FOOTER */}
+      <div className="w-full text-center pb-6 pt-4 px-4 opacity-90 flex flex-col items-center gap-2 z-10 transition-all duration-300">
+        <p className={`text-sm font-semibold opacity-70 uppercase tracking-widest ${gameState === 'playing' ? 'text-gray-600' : 'text-teal-700'}`}>
+          {isRTL ? 'ادعم' : 'Support'}
+        </p>
+        <a href="https://www.instagram.com/yaseenyouthtours/" target="_blank" rel="noopener noreferrer" 
+           className="group flex flex-col items-center bg-white/60 hover:bg-white/95 backdrop-blur-sm px-8 py-3 rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-black/5">
+          <span className="flex items-center gap-2 font-extrabold text-gray-800 text-lg group-hover:text-teal-700 transition-colors">
+            <Instagram className="w-5 h-5 text-pink-600 drop-shadow-sm" />
+            Yaseen Youth
+          </span>
+          <span className="text-xs font-bold text-gray-500 mt-1 uppercase tracking-wider group-hover:text-gray-700 transition-colors">
+            Inspiring the Muslim Youths
+          </span>
+        </a>
       </div>
 
       {/* RESET MODAL */}
