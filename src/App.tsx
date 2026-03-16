@@ -239,11 +239,11 @@ export default function App() {
           <h1 className="text-xl font-bold opacity-80">{txt.title[lang]}</h1>
         </div>
         <div className="flex items-center gap-2">
-          <button onClick={() => setShowResetModal(true)} className="p-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all text-red-500" title={lang === 'ar' ? 'إعادة تعيين اللعبة' : 'Reset Game'}>
-            <Trash2 className="w-5 h-5" />
+          <button onClick={() => setShowResetModal(true)} className="p-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all text-red-500" title={lang === 'ar' ? 'إعادة تعيين اللعبة' : 'Reset Game'} aria-label={lang === 'ar' ? 'إعادة تعيين اللعبة' : 'Reset Game'}>
+            <Trash2 className="w-5 h-5" aria-hidden="true" />
           </button>
-          <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all font-medium text-sm">
-            <Globe className="w-4 h-4" />
+          <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all font-medium text-sm" aria-label={lang === 'ar' ? 'تبديل اللغة إلى الإنجليزية' : 'Switch Language to Arabic'}>
+            <Globe className="w-4 h-4" aria-hidden="true" />
             {lang === 'ar' ? 'English' : 'العربية'}
           </button>
         </div>
@@ -266,7 +266,9 @@ export default function App() {
               <div className="flex gap-2 mb-6 justify-center" style={{ direction: 'ltr' }}>
                 {[1, 2, 3, 4].map(num => (
                   <button key={num} onClick={() => handlePlayerCountChange(num)}
-                    className={`w-14 h-14 rounded-full font-bold text-xl flex items-center justify-center transition-all ${players.length === num ? 'bg-teal-500 text-white shadow-lg scale-110' : 'bg-teal-100 text-teal-600 hover:bg-teal-200'}`}>
+                    className={`w-14 h-14 rounded-full font-bold text-xl flex items-center justify-center transition-all ${players.length === num ? 'bg-teal-500 text-white shadow-lg scale-110' : 'bg-teal-100 text-teal-600 hover:bg-teal-200'}`}
+                    aria-label={lang === 'ar' ? `اختيار ${num} لاعب` : `Select ${num} player${num > 1 ? 's' : ''}`}
+                    aria-pressed={players.length === num}>
                     {num}
                   </button>
                 ))}
