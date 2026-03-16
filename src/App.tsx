@@ -211,7 +211,7 @@ export default function App() {
   // --- TEXT CONSTANTS ---
   const txt: Record<string, Record<string, string>> = {
     title: { ar: "اعرف دينك", en: "Know Your Deen" },
-    subtitle: { ar: "اختبر معلوماتك الإسلامية", en: "Challenge your Islamic knowledge" },
+    subtitle: { ar: "تحدي الاسئلة الدينية", en: "Challenge your Islamic knowledge" },
     setupPlayers: { ar: "عدد اللاعبين:", en: "Number of Players:" },
     startBtn: { ar: "ابدأ اللعبة", en: "Start Game" },
     namePlaceholder: { ar: "اسم اللاعب", en: "Player Name" },
@@ -256,6 +256,7 @@ export default function App() {
         {/* === SETUP SCREEN === */}
         {gameState === 'setup' && (
           <div className="bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-xl w-full max-w-md mx-auto text-center">
+            <p className="text-teal-700/60 font-medium mb-6 mt-2 tracking-widest text-lg" style={{ fontFamily: '"Traditional Arabic", "Amiri", "Scheherazade New", serif' }}>بســـم اللـه الرحمـن الرحيـم</p>
             <MoonIcon className="w-20 h-20 text-teal-500 mx-auto mb-4" />
             <h2 className="text-4xl font-extrabold text-teal-800 mb-2">{txt.title[lang]}</h2>
             <p className="text-teal-600 mb-8">{txt.subtitle[lang]}</p>
