@@ -58,7 +58,7 @@ interface Player {
 export default function App() {
   const savedState = useMemo(() => getInitialState(), []);
 
-  const [lang, setLang] = useState<'ar' | 'en'>(savedState?.lang || 'ar');
+  const [lang, setLang] = useState<'ar' | 'en'>(savedState?.lang || 'en');
   const [gameState, setGameState] = useState<'setup' | 'playing' | 'finished'>(savedState?.gameState || 'setup');
   const [players, setPlayers] = useState<Player[]>(savedState?.players || [{ id: 0, name: '' }]);
   const [questionsPerPlayer, setQuestionsPerPlayer] = useState<number>(savedState?.questionsPerPlayer || 0);
