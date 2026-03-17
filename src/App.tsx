@@ -231,7 +231,7 @@ export default function App() {
   const cardTheme = gameState === 'playing' ? CARD_THEMES[currentTurn] : CARD_THEMES[0];
 
   return (
-    <div dir={isRTL ? 'rtl' : 'ltr'} className={`min-h-screen transition-colors duration-500 font-sans flex flex-col items-center ${currentTheme}`}>
+    <main dir={isRTL ? 'rtl' : 'ltr'} className={`min-h-screen transition-colors duration-500 font-sans flex flex-col items-center ${currentTheme}`}>
 
       {/* TOP BAR */}
       <div className="w-full max-w-4xl p-4 flex justify-between items-center z-10">
@@ -243,7 +243,7 @@ export default function App() {
           <button onClick={() => setShowResetModal(true)} className="p-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all text-red-500" title={lang === 'ar' ? 'إعادة تعيين اللعبة' : 'Reset Game'} aria-label={lang === 'ar' ? 'إعادة تعيين اللعبة' : 'Reset Game'}>
             <Trash2 className="w-5 h-5" aria-hidden="true" />
           </button>
-          <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all font-medium text-sm" aria-label={lang === 'ar' ? 'تبديل اللغة إلى الإنجليزية' : 'Switch Language to Arabic'}>
+          <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all font-medium text-sm" aria-label={lang === 'ar' ? 'English (تبديل اللغة)' : 'الْعَرَبِيَّة (Switch Language)'}>
             <Globe className="w-4 h-4" aria-hidden="true" />
             {lang === 'ar' ? 'English' : 'الْعَرَبِيَّة'}
           </button>
@@ -402,7 +402,7 @@ export default function App() {
 
       {/* FOOTER */}
       <div className="w-full text-center pb-6 pt-4 px-4 opacity-90 flex flex-col items-center gap-2 z-10 transition-all duration-300">
-        <p className={`text-sm font-semibold opacity-70 uppercase tracking-widest ${gameState === 'playing' ? 'text-gray-600' : 'text-teal-700'}`}>
+        <p className={`text-sm font-semibold uppercase tracking-widest ${gameState === 'playing' ? 'text-gray-700' : 'text-teal-800'}`}>
           {isRTL ? 'اُدْعُمْ' : 'Support'}
         </p>
         <a href="https://www.instagram.com/yaseenyouthtours/" target="_blank" rel="noopener noreferrer" 
@@ -411,7 +411,7 @@ export default function App() {
             <Instagram className="w-5 h-5 text-pink-600 drop-shadow-sm" />
             Yaseen Youth
           </span>
-          <span className="text-xs font-bold text-gray-500 mt-1 uppercase tracking-wider group-hover:text-gray-700 transition-colors">
+          <span className="text-xs font-bold text-gray-600 mt-1 uppercase tracking-wider group-hover:text-gray-800 transition-colors">
             Inspiring the Muslim Youths
           </span>
         </a>
@@ -439,6 +439,6 @@ export default function App() {
         .animate-fade-in-up { animation: fadeInUp 0.4s ease-out forwards; }
       `}} />
       <Analytics />
-    </div>
+    </main>
   );
 }
