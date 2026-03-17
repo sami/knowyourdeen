@@ -210,20 +210,20 @@ export default function App() {
 
   // --- TEXT CONSTANTS ---
   const txt: Record<string, Record<string, string>> = {
-    title: { ar: "اعرف دينك", en: "Know Your Deen" },
-    subtitle: { ar: "تحدي الاسئلة الدينية", en: "Challenge your Islamic knowledge" },
-    setupPlayers: { ar: "عدد اللاعبين:", en: "Number of Players:" },
-    startBtn: { ar: "ابدأ اللعبة", en: "Start Game" },
-    namePlaceholder: { ar: "اسم اللاعب", en: "Player Name" },
-    turnOf: { ar: "دور:", en: "Turn:" },
-    qNum: { ar: "سؤال", en: "Question" },
-    score: { ar: "النقاط", en: "Score" },
-    correct: { ar: "إجابة صحيحة! أحسنت", en: "Correct Answer! Well done" },
-    wrong: { ar: "إجابة خاطئة", en: "Incorrect Answer" },
-    correctIs: { ar: "الإجابة الصحيحة هي:", en: "The correct answer is:" },
-    nextBtn: { ar: "التالي", en: "Next" },
-    gameOver: { ar: "انتهت اللعبة!", en: "Game Over!" },
-    playAgain: { ar: "العب مرة أخرى", en: "Play Again" },
+    title: { ar: "اِعْرِفْ دِينَك", en: "Know Your Deen" },
+    subtitle: { ar: "تَحَدِّي الْأَسْئِلَةِ الدِّينِيَّةِ", en: "Challenge your Islamic knowledge" },
+    setupPlayers: { ar: "عَدَدُ اللَّاعِبِينَ:", en: "Number of Players:" },
+    startBtn: { ar: "اِبْدَأ اللَّعِبَ", en: "Start Game" },
+    namePlaceholder: { ar: "اِسْمُ اللَّاعِبِ", en: "Player Name" },
+    turnOf: { ar: "دَوْرُ:", en: "Turn:" },
+    qNum: { ar: "سُؤَال", en: "Question" },
+    score: { ar: "النِّقَاط", en: "Score" },
+    correct: { ar: "إِجَابَةٌ صَحِيحَةٌ! أَحْسَنْتَ", en: "Correct Answer! Well done" },
+    wrong: { ar: "إِجَابَةٌ خَاطِئَةٌ", en: "Incorrect Answer" },
+    correctIs: { ar: "الْإِجَابَةُ الصَّحِيحَةُ هِيَ:", en: "The correct answer is:" },
+    nextBtn: { ar: "التَّالِي", en: "Next" },
+    gameOver: { ar: "انْتَهَتِ اللَّعْبَةُ!", en: "Game Over!" },
+    playAgain: { ar: "اِلْعَبْ مَرَّةً أُخْرَى", en: "Play Again" },
   };
 
   const isRTL = lang === 'ar';
@@ -245,7 +245,7 @@ export default function App() {
           </button>
           <button onClick={toggleLang} className="flex items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all font-medium text-sm" aria-label={lang === 'ar' ? 'تبديل اللغة إلى الإنجليزية' : 'Switch Language to Arabic'}>
             <Globe className="w-4 h-4" aria-hidden="true" />
-            {lang === 'ar' ? 'English' : 'العربية'}
+            {lang === 'ar' ? 'English' : 'الْعَرَبِيَّة'}
           </button>
         </div>
       </div>
@@ -256,7 +256,7 @@ export default function App() {
         {/* === SETUP SCREEN === */}
         {gameState === 'setup' && (
           <div className="bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-xl w-full max-w-md mx-auto text-center">
-            <p className="text-teal-700/60 font-medium mb-6 mt-2 tracking-widest text-lg" style={{ fontFamily: '"Traditional Arabic", "Amiri", "Scheherazade New", serif' }}>بســـم اللـه الرحمـن الرحيـم</p>
+            <p className="text-teal-700/60 font-medium mb-6 mt-2 tracking-widest text-lg" style={{ fontFamily: '"Traditional Arabic", "Amiri", "Scheherazade New", serif' }}>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
             <MoonIcon className="w-20 h-20 text-teal-500 mx-auto mb-4" />
             <h2 className="text-4xl font-extrabold text-teal-800 mb-2">{txt.title[lang]}</h2>
             <p className="text-teal-600 mb-8">{txt.subtitle[lang]}</p>
@@ -403,7 +403,7 @@ export default function App() {
       {/* FOOTER */}
       <div className="w-full text-center pb-6 pt-4 px-4 opacity-90 flex flex-col items-center gap-2 z-10 transition-all duration-300">
         <p className={`text-sm font-semibold opacity-70 uppercase tracking-widest ${gameState === 'playing' ? 'text-gray-600' : 'text-teal-700'}`}>
-          {isRTL ? 'ادعم' : 'Support'}
+          {isRTL ? 'اُدْعُمْ' : 'Support'}
         </p>
         <a href="https://www.instagram.com/yaseenyouthtours/" target="_blank" rel="noopener noreferrer" 
            className="group flex flex-col items-center bg-white/60 hover:bg-white/95 backdrop-blur-sm px-8 py-3 rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all border border-black/5">
@@ -422,11 +422,11 @@ export default function App() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl animate-fade-in-up text-center">
             <AlertTriangle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">{lang === 'ar' ? 'إعادة تعيين اللعبة؟' : 'Reset Game?'}</h3>
-            <p className="text-gray-600 mb-6">{lang === 'ar' ? 'سيتم مسح جميع النقاط والتقدم. هل أنت متأكد؟' : 'All scores and progress will be lost. Are you sure?'}</p>
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">{lang === 'ar' ? 'إِعَادَةُ تَعْيِينِ اللَّعْبَةِ؟' : 'Reset Game?'}</h3>
+            <p className="text-gray-600 mb-6">{lang === 'ar' ? 'سَيَتِمُّ مَسْحُ جَمِيعِ النِّقَاطِ وَالتَّقَدُّمِ. هَلْ أَنْتَ مُتَأَكِّدٌ؟' : 'All scores and progress will be lost. Are you sure?'}</p>
             <div className="flex gap-3">
-              <button onClick={() => setShowResetModal(false)} className="flex-1 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl font-bold transition-all">{lang === 'ar' ? 'إلغاء' : 'Cancel'}</button>
-              <button onClick={confirmReset} className="flex-1 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-bold shadow-lg transition-all">{lang === 'ar' ? 'نعم، امسح' : 'Yes, Reset'}</button>
+              <button onClick={() => setShowResetModal(false)} className="flex-1 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl font-bold transition-all">{lang === 'ar' ? 'إِلْغَاء' : 'Cancel'}</button>
+              <button onClick={confirmReset} className="flex-1 py-3 bg-red-500 hover:bg-red-600 text-white rounded-xl font-bold shadow-lg transition-all">{lang === 'ar' ? 'نَعَمْ، اِمْسَحْ' : 'Yes, Reset'}</button>
             </div>
           </div>
         </div>
