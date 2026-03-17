@@ -13,6 +13,39 @@ function generateRoomCode(): string {
   return code;
 }
 
+const PLAYER_ID_PREFIX = 'kyd_pid_';
+
+function getOrCreatePlayerId(roomCode: string): string {
+  const key = PLAYER_ID_PREFIX + roomCode;
+  const stored = localStorage.getItem(key);
+  if (stored) {
+    try {
+      const { id, ts } = JSON.parse(stored);
+      if (Date.now() - ts < 60 * 60 * 1000) return id;
+    } catch { /* ignore corrupt entries */ }
+  }
+  const id = crypto.randomUUID().replace(/-/g, '').slice(0, 16);
+  localStorage.setItem(key, JSON.stringify({ id, ts: Date.now() }));
+  return id;
+}
+
+function clearPlayerId(roomCode: string) {
+  localStorage.removeItem(PLAYER_ID_PREFIX + roomCode);
+}
+
+// Remove stale entries older than 1 hour
+function cleanupStalePlayerIds() {
+  for (let i = localStorage.length - 1; i >= 0; i--) {
+    const key = localStorage.key(i);
+    if (!key?.startsWith(PLAYER_ID_PREFIX)) continue;
+    try {
+      const { ts } = JSON.parse(localStorage.getItem(key)!);
+      if (Date.now() - ts > 60 * 60 * 1000) localStorage.removeItem(key);
+    } catch { localStorage.removeItem(key!); }
+  }
+}
+cleanupStalePlayerIds();
+
 export type OnlineScreen = 'setup' | 'lobby' | 'playing' | 'finished';
 
 interface OnlineState {
@@ -256,21 +289,23 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
       existing.close();
     }
 
+    const playerId = getOrCreatePlayerId(roomCode);
     const socket = new PartySocket({
       host: PARTYKIT_HOST,
       room: roomCode,
+      id: playerId,
     });
 
     set({
       socket,
-      myPlayerId: socket.id,
+      myPlayerId: playerId,
       roomCode,
       connecting: true,
       error: null,
     });
 
     socket.addEventListener('open', () => {
-      set({ connected: true, myPlayerId: socket.id });
+      set({ connected: true });
       socket.send(JSON.stringify({ type: 'join', name: playerName }));
     });
 
@@ -314,10 +349,9 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
     },
 
     disconnect: () => {
-      const { socket } = get();
-      if (socket) {
-        socket.close();
-      }
+      const { socket, roomCode } = get();
+      if (socket) socket.close();
+      if (roomCode) clearPlayerId(roomCode);
       set({ ...initialState });
     },
 

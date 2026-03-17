@@ -222,7 +222,12 @@ export default class GameRoom implements Party.Server {
   // --- Message Handlers ---
 
   handleJoin(sender: Party.Connection, name: string) {
-    // Validate
+    // Reconnection: player already in the room (stable ID matched)
+    if (this.state.players.some(p => p.id === sender.id)) {
+      return;
+    }
+
+    // New player — only allow joining in lobby phase
     if (this.state.phase !== "lobby") {
       this.send(sender, { type: "error", message: "gameInProgress" });
       return;
@@ -230,11 +235,6 @@ export default class GameRoom implements Party.Server {
 
     if (this.state.players.filter(p => p.connected).length >= this.state.maxPlayers) {
       this.send(sender, { type: "error", message: "roomFull" });
-      return;
-    }
-
-    // Check if already joined
-    if (this.state.players.some(p => p.id === sender.id)) {
       return;
     }
 
