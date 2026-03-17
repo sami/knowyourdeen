@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:party": "npx partykit dev",
+    "dev:all": "npx partykit dev & vite",
     "build": "tsc -b && vite build",
+    "deploy:party": "npx partykit deploy",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
@@ -14,7 +17,10 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
     "@vercel/analytics": "^2.0.1",
+    "html-to-image": "^1.11.13",
     "lucide-react": "^0.577.0",
+    "partykit": "^0.0.115",
+    "partysocket": "^1.1.16",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwindcss": "^4.2.1",
