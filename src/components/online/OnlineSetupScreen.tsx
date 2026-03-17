@@ -12,7 +12,7 @@ interface OnlineSetupScreenProps {
 export function OnlineSetupScreen({ onBack }: OnlineSetupScreenProps) {
   const { lang, toggleLang } = useGameStore();
   const { createRoom, joinRoom, error, clearError, connecting } = useOnlineStore();
-  const [name, setName] = useState('');
+  const [name, setName] = useState(() => localStorage.getItem('kyd_player_name') || '');
   const [roomCode, setRoomCode] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     return params.get('room')?.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4) || '';
@@ -29,12 +29,14 @@ export function OnlineSetupScreen({ onBack }: OnlineSetupScreenProps) {
   const handleCreate = () => {
     if (connecting) return;
     const playerName = name.trim() || (lang === 'ar' ? 'لاعب' : 'Player');
+    localStorage.setItem('kyd_player_name', playerName);
     createRoom(playerName);
   };
 
   const handleJoin = () => {
     if (connecting || !roomCode.trim()) return;
     const playerName = name.trim() || (lang === 'ar' ? 'لاعب' : 'Player');
+    localStorage.setItem('kyd_player_name', playerName);
     joinRoom(roomCode.trim(), playerName);
   };
 
