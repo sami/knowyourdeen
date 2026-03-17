@@ -512,8 +512,8 @@ export const questionsDB: QuestionData[] = [
   },
   {
     id: 97,
-    ar: { q: " مَا هِي مِهْنَةِ النَّبِيِّ ﷺ قَبْل الْبَعْثَةِ ؟", options: { "أ": " مُزَارِعٌ", "ب": " تَاجِرٌ", "ج": " حَدَّادٌ", "د": " نَجَّارٌ" }, ans: "ب", exp: " كَان النَّبِيِّ ﷺ يَعْمَلُ فِي التِّجَارَةِ ، وقَد تَاجَرَ لِخَدِيجَةِ ( رَضِّيَّ الْلَّهُ عَنْهَُا ) قَبْل زَوَاجِهِمَا", link: "https://islamqa.info/ar/answers/21546" },
-    en: { q: "What was the Prophet's (PBUH) occupation before prophethood?", options: { "A": "Farmer", "B": "Trader", "C": "Blacksmith", "D": "Carpenter" }, ans: "B", exp: "The Prophet (PBUH) was a trader and managed the business affairs of Khadijah (RA) before their marriage.", link: "https://islamqa.info/en/answers/21546" }
+    ar: { q: "مَا هِيَ آخِرُ مِهْنَةٍ عَمِلَ بِهَا النَّبِيُّ ﷺ قَبْلَ الْبَعْثَةِ؟", options: { "أ": " مُزَارِعٌ", "ب": " تَاجِرٌ", "ج": " حَدَّادٌ", "د": " نَجَّارٌ" }, ans: "ب", exp: " كَان النَّبِيِّ ﷺ يَعْمَلُ فِي التِّجَارَةِ ، وقَد تَاجَرَ لِخَدِيجَةِ ( رَضِّيَّ الْلَّهُ عَنْهَُا ) قَبْل زَوَاجِهِمَا", link: "https://islamqa.info/ar/answers/21546" },
+    en: { q: "What was the Prophet's (PBUH) last known occupation before prophethood?", options: { "A": "Farmer", "B": "Trader", "C": "Blacksmith", "D": "Carpenter" }, ans: "B", exp: "The Prophet (PBUH) was a trader and managed the business affairs of Khadijah (RA) before their marriage.", link: "https://islamqa.info/en/answers/21546" }
   },
   {
     id: 98,
