@@ -296,6 +296,8 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
       id: playerId,
     });
 
+    let joinSent = false;
+
     set({
       socket,
       myPlayerId: playerId,
@@ -306,10 +308,25 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
 
     socket.addEventListener('open', () => {
       set({ connected: true });
-      socket.send(JSON.stringify({ type: 'join', name: playerName }));
     });
 
-    socket.addEventListener('message', handleMessage);
+    socket.addEventListener('message', (event) => {
+      handleMessage(event);
+
+      // After the first room-state, decide whether to send join.
+      // If the server already recognises us (stable ID matched in onConnect),
+      // we're in the players list — no join needed.
+      // If we're NOT in the list, we're a new player and must join.
+      if (!joinSent) {
+        const isInRoom = get().players.some(p => p.id === playerId);
+        if (isInRoom) {
+          joinSent = true;
+        } else if (get().connected) {
+          joinSent = true;
+          socket.send(JSON.stringify({ type: 'join', name: playerName }));
+        }
+      }
+    });
 
     socket.addEventListener('close', () => {
       set({ connected: false });
