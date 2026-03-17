@@ -29,7 +29,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 1,
     ar: { q: " فِي أَيِّ مَدِينَةِ وُلْدِ النَّبِيِّ مُحَمَّدَ ﷺ ؟", options: { "أ": " الْمَدِينَةُ الْمُنَوَّرَةُ", "ب": " مَكَّةُ الْمُكَرَّمَةِ", "ج": " الْقُدْسُ", "د": " الطَّائِفُ" }, ans: "ب", exp: " وُلِدَ النَّبِيُّ مُحَمَّدُ ﷺ فِي مَكَّةِ الْمُكَرَّمَةِ فِي عَامِ الْفِيلِ ( حَوَالِيَّ 570 م ).", link: "https://islamqa.info/ar/answers/125529" },
-    en: { q: "In which city was the Prophet Muhammad (PBUH) born?", options: { "A": "Madinah", "B": "Makkah", "C": "Jerusalem", "D": "Ta'if" }, ans: "B", exp: "The Prophet Muhammad (PBUH) was born in Makkah in the Year of the Elephant (approx. 570 CE).", link: "https://islamqa.info/en/answers/125529" }
+    en: { q: "In which city was the Prophet Muhammad (PBUH) born?", options: { "A": "Madinah", "B": "Makkah", "C": "Jerusalem", "D": "Ta'if" }, ans: "B", exp: "The Prophet Muhammad (PBUH) was born in Makkah in the Year of the Elephant (approx. 570 CE), the same year Abraha's army marched to destroy the Kaaba but was repelled by flocks of birds sent by Allah (SWT), as described in Surah Al-Fil.", link: "https://islamqa.info/en/answers/125529" }
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 3,
     ar: { q: " مَنٌّ هُو الصَّحَابِيِّ الَّذِي لُقِّبَ ب 'سيف اللهَ المسلول' ؟", options: { "أ": " عُمَرُ بْن الْخِطَابَ ( رَضِّيَّ الْلَّهُ عَنْهُ )", "ب": " عُلِيَ بْن أبِي طَالِبِ ( رَضِّيَّ الْلَّهُ عَنْهُ )", "ج": " خَالِدُ بْن الْوَلِيدَ ( رَضِّيَّ الْلَّهُ عَنْهُ )", "د": " حَمْزَةُ بْن عَبْدَ الْمَطْلَبِ ( رَضِّيَّ الْلَّهُ عَنْهُ )" }, ans: "ج", exp: " خَالِدُ بْن الْوَلِيدَ ( رَضِّيَّ الْلَّهُ عَنْهُ ) لُقِّبَ بهَذَا اللَّقَبِ لِمَهَارَتَهُ الْعَسْكَرِيَّةَ الْفَذَّةَ وَشَجَاعَتَهُ", link: "https://islamqa.info/ar/answers/100512" },
-    en: { q: "Which Companion (RA) was given the title 'The Drawn Sword of Allah'?", options: { "A": "Umar ibn Al-Khattab (RA)", "B": "Ali ibn Abi Talib (RA)", "C": "Khalid ibn Al-Walid (RA)", "D": "Hamza ibn Abdul-Muttalib (RA)" }, ans: "C", exp: "Khalid ibn Al-Walid (RA) was given this title by the Prophet (PBUH) due to his unmatched military brilliance.", link: "https://islamqa.info/en/answers/100512" }
+    en: { q: "Which Companion (RA) was given the title 'The Drawn Sword of Allah'?", options: { "A": "Umar ibn Al-Khattab (RA)", "B": "Ali ibn Abi Talib (RA)", "C": "Khalid ibn Al-Walid (RA)", "D": "Hamza ibn Abdul-Muttalib (RA)" }, ans: "C", exp: "Khalid ibn Al-Walid (RA) was given this title by the Prophet (PBUH). He initially fought against the Muslims at Uhud, but later embraced Islam and never lost a single battle as a Muslim commander.", link: "https://islamqa.info/en/answers/100512" }
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 5,
     ar: { q: " فِي أَيِّ غَزْوَةٍ اُسْتُشْهِدَ حَمْزَةَ بْن عَبْدَ الْمَطْلَبِ ( رَضِّيَّ الْلَّهُ عَنْهُ )؟", options: { "أ": " غَزْوَةُ بَدْرٍ", "ب": " غَزْوَةُ أحَدٍ", "ج": " غَزْوَةُ الْخَنْدَقِ", "د": " غَزْوَةٌ تَبُوكُ" }, ans: "ب", exp: " اُسْتُشْهِدَ أُسْدِ اللَّهِ حَمْزَةَ بْن عَبْدَ الْمَطْلَبِ فِي غَزْوَةٍ أَحَدَّ سَنَةِ 3 ه", link: "https://islamqa.info/ar/answers/148054" },
-    en: { q: "In which battle was Hamza ibn Abdul-Muttalib (RA) martyred?", options: { "A": "Battle of Badr", "B": "Battle of Uhud", "C": "Battle of Khandaq", "D": "Battle of Tabuk" }, ans: "B", exp: "The Lion of Allah, Hamza (RA), was martyred during the Battle of Uhud in 3 AH.", link: "https://islamqa.info/en/answers/148054" }
+    en: { q: "In which battle was Hamza ibn Abdul-Muttalib (RA) martyred?", options: { "A": "Battle of Badr", "B": "Battle of Uhud", "C": "Battle of Khandaq", "D": "Battle of Tabuk" }, ans: "B", exp: "Hamza (RA), the Prophet's (PBUH) uncle and one of the earliest and most courageous converts to Islam, was martyred at the Battle of Uhud in 3 AH. The Prophet (PBUH) was deeply grieved by his death.", link: "https://islamqa.info/en/answers/148054" }
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 7,
     ar: { q: " مَنٌّ كَان أَوَّل مُؤَذِّنٍ فِي الْإِسْلَامِ ؟", options: { "أ": " أَبُو بِكْرِ الصَّدِيقِ ( رَضِّيَّ الْلَّهُ عَنْهُ )", "ب": " بِلَالُ بْن رُبَّاحَ ( رَضِّيَّ الْلَّهُ عَنْهُ )", "ج": " عُثْمَانُ بْن عَفَّانِ ( رَضِّيَّ الْلَّهُ عَنْهُ )", "د": " زِيدَ بْن حَارِثَةَ ( رَضِّيَّ الْلَّهُ عَنْهُ )" }, ans: "ب", exp: " بِلَالُ بْن رُبَّاحَ ( رَضِّيَّ الْلَّهُ عَنْهُ ) اِخْتَارَهُ النَّبِيُّ ﷺ لنداوة صَوْتَهُ وَإيمَانَهُ الرَّاسِخَ", link: "https://islamqa.info/ar/answers/110595" },
-    en: { q: "Who was the first Mu'adhin (caller to prayer) in Islam?", options: { "A": "Abu Bakr As-Siddiq (RA)", "B": "Bilal ibn Rabah (RA)", "C": "Uthman ibn Affan (RA)", "D": "Zayd ibn Harithah (RA)" }, ans: "B", exp: "Bilal ibn Rabah (RA) was chosen by the Prophet (PBUH) for his beautiful voice and unwavering faith.", link: "https://islamqa.info/en/answers/110595" }
+    en: { q: "Who was the first Mu'adhin (caller to prayer) in Islam?", options: { "A": "Abu Bakr As-Siddiq (RA)", "B": "Bilal ibn Rabah (RA)", "C": "Uthman ibn Affan (RA)", "D": "Zayd ibn Harithah (RA)" }, ans: "B", exp: "Bilal ibn Rabah (RA) was an Abyssinian former slave who endured severe torture for his faith, repeating 'Ahad, Ahad' (One, One). After being freed by Abu Bakr (RA), the Prophet (PBUH) chose him as the first mu'adhin for his beautiful voice.", link: "https://islamqa.info/en/answers/110595" }
   },
   {
     id: 8,
@@ -84,7 +84,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 12,
     ar: { q: " أَيْن تُقْعِ قِبَلَةُ الْمُسْلِمِينَ الْأوْلَى ؟", options: { "أ": " الْكَعْبَةُ الْمُشَرَّفَة", "ب": " الْمَسْجِدُ النَّبَوِيُّ", "ج": " الْمَسْجِدَ الْأقْصَى", "د": " مَسْجِدُ قَبَاءٍ" }, ans: "ج", exp: " الْمَسْجِدَ الْأقْصَى فِي الْقُدْسِ كَان الْقِبَلَةِ الْأوْلَى لِلْمُسْلِمِينَ قَبْل أَن تَتَغَيَّرُ إِلَى الْكَعْبَةِ", link: "https://islamqa.info/ar/answers/118680" },
-    en: { q: "Where was the first Qiblah (direction of prayer) for Muslims?", options: { "A": "The Kaaba", "B": "Al-Masjid An-Nabawi", "C": "Al-Masjid Al-Aqsa", "D": "Masjid Quba" }, ans: "C", exp: "Al-Masjid Al-Aqsa in Jerusalem was the initial direction of prayer before it was changed to the Kaaba in Makkah.", link: "https://islamqa.info/en/answers/118680" }
+    en: { q: "Where was the first Qiblah (direction of prayer) for Muslims?", options: { "A": "The Kaaba", "B": "Al-Masjid An-Nabawi", "C": "Al-Masjid Al-Aqsa", "D": "Masjid Quba" }, ans: "C", exp: "Al-Masjid Al-Aqsa in Jerusalem was the initial direction of prayer. About 16 months after the Hijrah, Allah (SWT) commanded the change to the Kaaba in Makkah (Surah Al-Baqarah 2:144).", link: "https://islamqa.info/en/answers/118680" }
   },
   {
     id: 13,
@@ -180,7 +180,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 31,
     ar: { q: " كَم عَدَدِ أَرْكَانِ الْإِسْلَامِ ؟", options: { "أ": " 5", "ب": " 4", "ج": " 6", "د": " 7" }, ans: "أ", exp: " أَرْكَانُ الْإِسْلَامِ خَمْسَةً: الشَّهَادَتَانِ ، وَالصَّلَاَةَ ، وَالزَّكَاةَ ، وَالصَّوْمَ ، وَاِلْحَجْ", link: "https://sunnah.com/bukhari:8" },
-    en: { q: "How many Pillars of Islam are there?", options: { "A": "5", "B": "4", "C": "6", "D": "7" }, ans: "A", exp: "The Five Pillars: Shahadah, Salah, Zakat, Sawm, and Hajj.", link: "https://sunnah.com/bukhari:8" }
+    en: { q: "How many Pillars of Islam are there?", options: { "A": "5", "B": "4", "C": "6", "D": "7" }, ans: "A", exp: "The Five Pillars are: Shahadah (testimony of faith), Salah (five daily prayers), Zakat (annual charity of 2.5% on savings), Sawm (fasting in Ramadan), and Hajj (pilgrimage to Makkah once in a lifetime if able).", link: "https://sunnah.com/bukhari:8" }
   },
   {
     id: 32,
@@ -245,7 +245,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 44,
     ar: { q: " مَنٌّ هُو مُؤَلِّفِ كِتَابِ 'رياض الصالحين' ؟", options: { "أ": " الْإمَامُ الْبُخَارِيُّ", "ب": " الْإمَامُ مُسْلِمٌ", "ج": " الْإمَامُ النَّوَوِيُّ", "د": " الْإمَامُ أَحَمِدَ" }, ans: "ج", exp: " الْإمَامُ النَّوَوِيُّ ( رَحِمَهُ الْلَّهُ ) هُو مُؤَلِّفِ كِتَابِ رِيَاضِ الصَّالِحِينَ الْمَشْهُورَ", link: "https://sunnah.com/riyadussalihin" },
-    en: { q: "Who compiled the book 'Riyad as-Salihin'?", options: { "A": "Imam Al-Bukhari", "B": "Imam Muslim", "C": "Imam An-Nawawi", "D": "Imam Ahmad" }, ans: "C", exp: "Imam An-Nawawi (may Allah have mercy on him) compiled the renowned book Riyad as-Salihin.", link: "https://sunnah.com/riyadussalihin" }
+    en: { q: "Who compiled the book 'Riyad as-Salihin'?", options: { "A": "Imam Al-Bukhari", "B": "Imam Muslim", "C": "Imam An-Nawawi", "D": "Imam Ahmad" }, ans: "C", exp: "Imam An-Nawawi (may Allah have mercy on him) compiled Riyad as-Salihin ('Gardens of the Righteous'), a widely-read collection of authentic hadiths organised by topics of worship, daily life, and moral conduct.", link: "https://sunnah.com/riyadussalihin" }
   },
   {
     id: 45,
@@ -260,7 +260,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 47,
     ar: { q: " مَنٌّ هُو مُؤَلِّفِ صَحِيحِ مُسْلِمِ ؟", options: { "أ": " الْإمَامُ الْبُخَارِيُّ", "ب": " مُسْلِمُ بْن الْحُجَّاجَ", "ج": " أَبُو دَاوُدٍ", "د": " الْإمَامُ التِّرْمِذِيَّ" }, ans: "ب", exp: " الْإمَامُ مُسْلِمُ بْن الْحَجَاجَ النِّيسَابُورِيَّ هُو مُؤَلِّفِ صَحِيحِ مُسْلِمِ ( رَحِمَهُ الْلَّهُ ).", link: "https://sunnah.com/muslim" },
-    en: { q: "Who is the compiler of Sahih Muslim?", options: { "A": "Imam Al-Bukhari", "B": "Muslim ibn al-Hajjaj", "C": "Abu Dawud", "D": "Imam At-Tirmidhi" }, ans: "B", exp: "Imam Muslim ibn al-Hajjaj an-Naysaburi (may Allah have mercy on him) compiled Sahih Muslim.", link: "https://sunnah.com/muslim" }
+    en: { q: "Who is the compiler of Sahih Muslim?", options: { "A": "Imam Al-Bukhari", "B": "Muslim ibn al-Hajjaj", "C": "Abu Dawud", "D": "Imam At-Tirmidhi" }, ans: "B", exp: "Imam Muslim ibn al-Hajjaj an-Naysaburi (may Allah have mercy on him) compiled Sahih Muslim, the second most authentic hadith collection after Sahih Al-Bukhari. Together they are known as 'As-Sahihayn' (The Two Authentics).", link: "https://sunnah.com/muslim" }
   },
   {
     id: 48,
@@ -291,7 +291,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 53,
     ar: { q: " فِي أَيِّ سَنَةِ مِيلَاَدِيَّةِ كانت الْهِجْرَةَ النَّبَوِيَّةَ إِلَى الْمَدِينَةِ ؟", options: { "أ": " 610 م", "ب": " 622 م", "ج": " 630 م", "د": " 632 م" }, ans: "ب", exp: " كانت الْهِجْرَةَ النَّبَوِيَّةَ مِن مَكَّةٍ إِلَى الْمَدِينَةِ فِي عَامِ 622 م", link: "https://islamqa.info/ar/answers/14629" },
-    en: { q: "In which year (CE) did the Hijrah to Madinah take place?", options: { "A": "610 CE", "B": "622 CE", "C": "630 CE", "D": "632 CE" }, ans: "B", exp: "The Hijrah (migration) from Makkah to Madinah occurred in 622 CE.", link: "https://islamqa.info/en/answers/14629" }
+    en: { q: "In which year (CE) did the Hijrah to Madinah take place?", options: { "A": "610 CE", "B": "622 CE", "C": "630 CE", "D": "632 CE" }, ans: "B", exp: "The Hijrah from Makkah to Madinah occurred in 622 CE, marking a turning point in Islamic history. It established the first Muslim community-state and became the starting point of the Islamic calendar.", link: "https://islamqa.info/en/answers/14629" }
   },
   {
     id: 54,
@@ -306,7 +306,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 56,
     ar: { q: " مَاذَا حَدَثٍ فِي 'عام الحزن' ؟", options: { "أ": " وَفَاةُ خَدِيجَةٍ وأَبِي طَالِبٍ", "ب": " غَزْوَةُ بَدْرٍ", "ج": " فَتَحَ مَكَّةٌ", "د": " الْهِجْرَةُ إِلَى الْحَبَشَةِ" }, ans: "أ", exp: " عَامُ الْحُزْنِ هُو الْعَامِ الَّذِي تَوَفَّيْتُ فِيهِ خَدِيجَةَ بِنْتِ خويلد وأَبُو طَالِبُ عَمَّ النَّبِيَّ ﷺ", link: "https://islamqa.info/ar/answers/147381" },
-    en: { q: "What happened during the 'Year of Sorrow' (Aam al-Huzn)?", options: { "A": "Deaths of Khadijah (RA) and Abu Talib", "B": "Battle of Badr", "C": "Conquest of Makkah", "D": "Migration to Abyssinia" }, ans: "A", exp: "The Year of Sorrow marks the passing of both Khadijah (RA) and Abu Talib, the Prophet's (PBUH) closest supporters.", link: "https://islamqa.info/en/answers/147381" }
+    en: { q: "What happened during the 'Year of Sorrow' (Aam al-Huzn)?", options: { "A": "Deaths of Khadijah (RA) and Abu Talib", "B": "Battle of Badr", "C": "Conquest of Makkah", "D": "Migration to Abyssinia" }, ans: "A", exp: "The Year of Sorrow (approx. 619 CE) marks the passing of both Khadijah (RA), the Prophet's (PBUH) beloved wife and first believer, and Abu Talib, his uncle and political protector. Their loss left the Prophet (PBUH) without his two greatest sources of personal and political support.", link: "https://islamqa.info/en/answers/147381" }
   },
   {
     id: 57,
@@ -321,7 +321,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 59,
     ar: { q: " كَمٌّ كَان عُمَرِ النَّبِيِّ ﷺ حِين تَوَفَّيْ ؟", options: { "أ": " 60 سَنَةً", "ب": " 65 سَنَةً", "ج": " 70 سَنَةً", "د": " 63 سَنَةً" }, ans: "د", exp: " تَوَفَّيْ النَّبِيَّ ﷺ وَعُمَرَهُ 63 سَنَةً فِي الْمَدِينَةِ الْمُنَوَّرَةِ", link: "https://islamqa.info/ar/answers/11575" },
-    en: { q: "How old was the Prophet Muhammad (PBUH) when he passed away?", options: { "A": "60", "B": "65", "C": "70", "D": "63" }, ans: "D", exp: "The Prophet (PBUH) passed away at the age of 63 in Madinah.", link: "https://islamqa.info/en/answers/11575" }
+    en: { q: "How old was the Prophet Muhammad (PBUH) when he passed away?", options: { "A": "60", "B": "65", "C": "70", "D": "63" }, ans: "D", exp: "The Prophet (PBUH) passed away at the age of 63 in Madinah on 12th Rabi al-Awwal 11 AH (632 CE). Abu Bakr (RA) consoled the companions saying: 'Whoever worshipped Muhammad, know that Muhammad has died; whoever worshipped Allah, know that Allah is Ever-Living and shall never die.'", link: "https://islamqa.info/en/answers/11575" }
   },
   {
     id: 60,
@@ -336,7 +336,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 62,
     ar: { q: " مِن أَوَّل مِن أسْلُمٍ مِن الصِّبْيَانِ ؟", options: { "أ": " زِيدَ بْن حَارِثَةً", "ب": " عُمَرُ بْن الْخِطَابَ", "ج": " عُلِيَ بْن أبِي طَالِبٍ", "د": " الزُّبَيْرُ بْن الْعَوَّامَ" }, ans: "ج", exp: " عُلِيَ بْن أبِي طَالِبِ ( رَضِّيَّ الْلَّهُ عَنْهُ ) كَان أَوَّل مِن أسْلُمٍ مِن الصِّبْيَانِ", link: "https://islamqa.info/ar/answers/169295" },
-    en: { q: "Who was the first youth to accept Islam?", options: { "A": "Zayd ibn Harithah", "B": "Umar ibn Al-Khattab", "C": "Ali ibn Abi Talib", "D": "Az-Zubayr ibn Al-Awwam" }, ans: "C", exp: "Ali ibn Abi Talib (RA) was the first youth to embrace Islam.", link: "https://islamqa.info/en/answers/169295" }
+    en: { q: "Who was the first youth to accept Islam?", options: { "A": "Zayd ibn Harithah", "B": "Umar ibn Al-Khattab", "C": "Ali ibn Abi Talib", "D": "Az-Zubayr ibn Al-Awwam" }, ans: "C", exp: "Ali ibn Abi Talib (RA) was the first youth to embrace Islam, accepting at around the age of 10. He was the Prophet's (PBUH) cousin, raised in his household, and later became the fourth Rightly Guided Caliph.", link: "https://islamqa.info/en/answers/169295" }
   },
   {
     id: 63,
@@ -357,12 +357,12 @@ export const questionsDB: QuestionData[] = [
   {
     id: 66,
     ar: { q: " مَنٌّ كَان أَوَّل خَلِيفَةٍ لِلْمُسْلِمِينَ بَعْد وَفَاةِ النَّبِيِّ ﷺ ؟", options: { "أ": " عُلِيَ بْن أبِي طَالِبٍ", "ب": " عُمَرُ بْن الْخِطَابَ", "ج": " عُثْمَانُ بْن عَفَّانِ", "د": " أَبُو بِكْرِ الصَّدِيقِ" }, ans: "د", exp: " أَبُو بِكْرِ الصَّدِيقِ ( رَضِّيَّ الْلَّهُ عَنْهُ ) كَان أَوَّل الْخُلَفَاءِ الرَّاشِدِينَ", link: "https://islamqa.info/ar/answers/98650" },
-    en: { q: "Who was the first Caliph after the Prophet (PBUH)?", options: { "A": "Ali ibn Abi Talib", "B": "Umar ibn Al-Khattab", "C": "Uthman ibn Affan", "D": "Abu Bakr As-Siddiq" }, ans: "D", exp: "Abu Bakr As-Siddiq (RA) was the first of the Rightly Guided Caliphs.", link: "https://islamqa.info/en/answers/98650" }
+    en: { q: "Who was the first Caliph after the Prophet (PBUH)?", options: { "A": "Ali ibn Abi Talib", "B": "Umar ibn Al-Khattab", "C": "Uthman ibn Affan", "D": "Abu Bakr As-Siddiq" }, ans: "D", exp: "Abu Bakr As-Siddiq (RA) was the first of the Rightly Guided Caliphs (632–634 CE). He was the Prophet's (PBUH) closest companion and the first free man to accept Islam. His caliphate united the Muslim community during the Ridda Wars.", link: "https://islamqa.info/en/answers/98650" }
   },
   {
     id: 67,
     ar: { q: " مَنٌّ كَان ثاني الْخُلَفَاءِ الرَّاشِدِينَ ؟", options: { "أ": " عُمَرُ بْن الْخِطَابَ", "ب": " عُثْمَانُ بْن عَفَّانِ", "ج": " عُلِيَ بْن أبِي طَالِبٍ", "د": " مُعَاوِيَةُ بْن أبِي سُفْيَانٍ" }, ans: "أ", exp: " عُمَرُ بْن الْخِطَابَ ( رَضِّيَّ الْلَّهُ عَنْهُ ) كَان ثاني الْخُلَفَاءِ الرَّاشِدِينَ وَلُقِّبَ بِالْفَارُوقِ", link: "https://islamqa.info/ar/answers/98650" },
-    en: { q: "Who was the second Rightly Guided Caliph?", options: { "A": "Umar ibn Al-Khattab", "B": "Uthman ibn Affan", "C": "Ali ibn Abi Talib", "D": "Mu'awiyah ibn Abi Sufyan" }, ans: "A", exp: "Umar ibn Al-Khattab (RA) was the second Caliph, known as Al-Faruq (The Distinguisher).", link: "https://islamqa.info/en/answers/98650" }
+    en: { q: "Who was the second Rightly Guided Caliph?", options: { "A": "Umar ibn Al-Khattab", "B": "Uthman ibn Affan", "C": "Ali ibn Abi Talib", "D": "Mu'awiyah ibn Abi Sufyan" }, ans: "A", exp: "Umar ibn Al-Khattab (RA) was the second Caliph (634–644 CE), known as Al-Faruq. Under his leadership, the Islamic state expanded across Persia, Egypt, and the Levant. He also established the Islamic calendar and many administrative systems.", link: "https://islamqa.info/en/answers/98650" }
   },
   {
     id: 68,
@@ -372,17 +372,17 @@ export const questionsDB: QuestionData[] = [
   {
     id: 69,
     ar: { q: " مِن الْخَلِيفَةِ الَّذِي وَحَّدَ الْمَصَاحِفُ عَلَى قُرَّاءَةِ وَاحِدَةِ ؟", options: { "أ": " أَبُو بِكْرِ الصَّدِيقِ", "ب": " عُثْمَانُ بْن عَفَّانِ", "ج": " عُمَرُ بْن الْخِطَابَ", "د": " عُلِيَ بْن أبِي طَالِبٍ" }, ans: "ب", exp: " عُثْمَانُ بْن عَفَّانِ ( رَضِّيَّ الْلَّهُ عَنْهُ ) وَحَّدَ الْمَصَاحِفُ عَلَى رَسْمِ وَاحِدِ وَنُسَخِهَا وَأَرْسَلَهَا إِلَى الْأَمْصَارِ", link: "https://islamqa.info/ar/answers/10012" },
-    en: { q: "Which Caliph standardised the Qur'an into one unified text?", options: { "A": "Abu Bakr As-Siddiq", "B": "Uthman ibn Affan", "C": "Umar ibn Al-Khattab", "D": "Ali ibn Abi Talib" }, ans: "B", exp: "Uthman ibn Affan (RA) standardised the Qur'anic text and sent copies to the major cities.", link: "https://islamqa.info/en/answers/10012" }
+    en: { q: "Which Caliph standardised the Qur'an into one unified text?", options: { "A": "Abu Bakr As-Siddiq", "B": "Uthman ibn Affan", "C": "Umar ibn Al-Khattab", "D": "Ali ibn Abi Talib" }, ans: "B", exp: "Uthman ibn Affan (RA) standardised the Qur'anic text into one official script to prevent regional variations in recitation as Islam spread to diverse lands. He sent copies to the major cities, ensuring the Qur'an's preservation in its original form.", link: "https://islamqa.info/en/answers/10012" }
   },
   {
     id: 70,
     ar: { q: " مَنٌّ هُو الْخَلِيفَةِ الَّذِي فَتْحِ الْقُدْسِ ؟", options: { "أ": " عُمَرُ بْن الْخِطَابَ", "ب": " أَبُو بِكْرِ الصَّدِيقِ", "ج": " خَالِدُ بْن الْوَلِيدَ", "د": " صَلَاَحُ الدِّينِ الأيوبي" }, ans: "أ", exp: " عُمَرُ بْن الْخِطَابَ ( رَضِّيَّ الْلَّهُ عَنْهُ ) تُسَلِّمُ مَفَاتِيحُ الْقُدْسِ مِن الْبَطْريركِ صفرونيوس", link: "https://islamqa.info/ar/answers/174752" },
-    en: { q: "Which Caliph received the keys to Jerusalem?", options: { "A": "Umar ibn Al-Khattab", "B": "Abu Bakr As-Siddiq", "C": "Khalid ibn Al-Walid", "D": "Salah ad-Din" }, ans: "A", exp: "Umar ibn Al-Khattab (RA) received the keys of Jerusalem from Patriarch Sophronius.", link: "https://islamqa.info/en/answers/174752" }
+    en: { q: "Which Caliph received the keys to Jerusalem?", options: { "A": "Umar ibn Al-Khattab", "B": "Abu Bakr As-Siddiq", "C": "Khalid ibn Al-Walid", "D": "Salah ad-Din" }, ans: "A", exp: "Umar ibn Al-Khattab (RA) personally travelled to Jerusalem and received the keys from Patriarch Sophronius in 637 CE. He famously refused to pray inside the Church of the Holy Sepulchre, fearing future Muslims might convert it into a mosque.", link: "https://islamqa.info/en/answers/174752" }
   },
   {
     id: 71,
     ar: { q: " حُروبُ الرَّدَّةِ وَقَّعَتْ فِي عَهْدِ أَيِّ خَلِيفَةٍ ؟", options: { "أ": " عُمَرُ بْن الْخِطَابَ", "ب": " أَبُو بِكْرِ الصَّدِيقِ", "ج": " عُثْمَانُ بْن عَفَّانِ", "د": " عُلِيَ بْن أبِي طَالِبٍ" }, ans: "ب", exp: " حُروبُ الرَّدَّةِ وَقَّعَتْ فِي عَهْدٍ أبِي بِكْرِ الصَّدِيقِ ( رَضِّيَّ الْلَّهُ عَنْهُ ) بَعْد وَفَاةِ النَّبِيِّ ﷺ", link: "https://islamqa.info/ar/answers/98650" },
-    en: { q: "The Ridda Wars (Wars of Apostasy) occurred during whose caliphate?", options: { "A": "Umar ibn Al-Khattab", "B": "Abu Bakr As-Siddiq", "C": "Uthman ibn Affan", "D": "Ali ibn Abi Talib" }, ans: "B", exp: "The Ridda Wars took place during Abu Bakr's (RA) caliphate after the Prophet's (PBUH) passing.", link: "https://islamqa.info/en/answers/98650" }
+    en: { q: "The Ridda Wars (Wars of Apostasy) occurred during whose caliphate?", options: { "A": "Umar ibn Al-Khattab", "B": "Abu Bakr As-Siddiq", "C": "Uthman ibn Affan", "D": "Ali ibn Abi Talib" }, ans: "B", exp: "The Ridda Wars took place when several Arab tribes renounced Islam or refused to pay Zakat after the Prophet's (PBUH) passing. Abu Bakr (RA) firmly fought to preserve the unity of the Muslim community and uphold the pillars of Islam.", link: "https://islamqa.info/en/answers/98650" }
   },
   {
     id: 72,
@@ -392,22 +392,22 @@ export const questionsDB: QuestionData[] = [
   {
     id: 73,
     ar: { q: " مَعْرَكَةُ الْيَرْمُوكِ كانت ضَدَّ أَيُّ إمْبرَاطُورِيَّةٍ ؟", options: { "أ": " الْفَارِسِيَّةُ", "ب": " الْمَغُولِيَّةُ", "ج": " الصِّينِيَّةُ", "د": " الْبِيزَنْطِيَّةُ ( الرُّومَانِيَّةَ )" }, ans: "د", exp: " مَعْرَكَةُ الْيَرْمُوكِ ( 636 م ) كانت اِنْتِصَارًا حَاسِمًا لِلْمُسْلِمِينَ عَلَى الْإمْبرَاطُورِيَّةِ الْبِيزَنْطِيَّةِ", link: "https://en.wikipedia.org/wiki/Battle_of_Yarmouk" },
-    en: { q: "The Battle of Yarmouk was fought against which empire?", options: { "A": "Persian", "B": "Mongol", "C": "Chinese", "D": "Byzantine (Roman)" }, ans: "D", exp: "The Battle of Yarmouk (636 CE) was a decisive Muslim victory against the Byzantine Empire.", link: "https://en.wikipedia.org/wiki/Battle_of_Yarmouk" }
+    en: { q: "The Battle of Yarmouk was fought against which empire?", options: { "A": "Persian", "B": "Mongol", "C": "Chinese", "D": "Byzantine (Roman)" }, ans: "D", exp: "The Battle of Yarmouk (636 CE) in modern-day Jordan was a decisive Muslim victory over the Byzantine Empire. Despite being heavily outnumbered, the Muslim forces under Khalid ibn Al-Walid (RA) secured a victory that opened the Levant to Islam.", link: "https://en.wikipedia.org/wiki/Battle_of_Yarmouk" }
   },
   {
     id: 74,
     ar: { q: " مَنٌّ هُو الْقَائِدِ الْمُسْلِمِ الَّذِي فَتْحِ مِصْرٍ ؟", options: { "أ": " عَمْروُ بْن الْعَاص", "ب": " طَارِقُ بْن زياد", "ج": " صَلَاَحُ الدِّينِ", "د": " خَالِدُ بْن الْوَلِيدَ" }, ans: "أ", exp: " عَمْروُ بْن الْعَاص ( رَضِّيَّ الْلَّهُ عَنْهُ ) فَتْحَ مِصْرٍ فِي عَهِدَ الْخَلِيفَةُ عُمَرَ بْن الْخِطَابَ", link: "https://en.wikipedia.org/wiki/Muslim_conquest_of_Egypt" },
-    en: { q: "Which Muslim commander conquered Egypt?", options: { "A": "Amr ibn al-As", "B": "Tariq ibn Ziyad", "C": "Salah ad-Din", "D": "Khalid ibn Al-Walid" }, ans: "A", exp: "Amr ibn al-As (RA) conquered Egypt during the caliphate of Umar ibn Al-Khattab (RA).", link: "https://en.wikipedia.org/wiki/Muslim_conquest_of_Egypt" }
+    en: { q: "Which Muslim commander conquered Egypt?", options: { "A": "Amr ibn al-As", "B": "Tariq ibn Ziyad", "C": "Salah ad-Din", "D": "Khalid ibn Al-Walid" }, ans: "A", exp: "Amr ibn al-As (RA) conquered Egypt in 641 CE during the caliphate of Umar ibn Al-Khattab (RA). He founded the city of Fustat, which eventually grew into modern-day Cairo.", link: "https://en.wikipedia.org/wiki/Muslim_conquest_of_Egypt" }
   },
   {
     id: 75,
     ar: { q: " مَن حَرَّرَ الْقُدْسَ مِن الصَّلِيبِيِّينَ ؟", options: { "أ": " خَالِدُ بْن الْوَلِيدَ", "ب": " صَلَاَحُ الدِّينِ الأيوبي", "ج": " مُحَمَّدُ الْفَاتِحِ", "د": " طَارِقُ بْن زياد" }, ans: "ب", exp: " صَلَاَحُ الدِّينِ الأيوبي حَرَّرَ الْقُدْسُ مِن الصَّلِيبِيِّينَ بَعْد مَعْرَكَةِ حُطِينَ سَنَةَ 1187 م", link: "https://en.wikipedia.org/wiki/Saladin" },
-    en: { q: "Who liberated Jerusalem from the Crusaders?", options: { "A": "Khalid ibn Al-Walid", "B": "Salah ad-Din Al-Ayyubi (Saladin)", "C": "Sultan Mehmed II", "D": "Tariq ibn Ziyad" }, ans: "B", exp: "Salah ad-Din liberated Jerusalem after the Battle of Hattin in 1187 CE.", link: "https://en.wikipedia.org/wiki/Saladin" }
+    en: { q: "Who liberated Jerusalem from the Crusaders?", options: { "A": "Khalid ibn Al-Walid", "B": "Salah ad-Din Al-Ayyubi (Saladin)", "C": "Sultan Mehmed II", "D": "Tariq ibn Ziyad" }, ans: "B", exp: "Salah ad-Din Al-Ayyubi liberated Jerusalem in 1187 CE after his decisive victory at the Battle of Hattin. He was renowned for his chivalry and mercy, allowing Christian inhabitants safe passage out of the city.", link: "https://en.wikipedia.org/wiki/Saladin" }
   },
   {
     id: 76,
     ar: { q: " فِي أَيِّ عَامِ سَقَطَتْ بَغْدَادُ عَلَى يَدِ الْمَغُولِ ؟", options: { "أ": " 1187 م", "ب": " 1453 م", "ج": " 1258 م", "د": " 1099 م" }, ans: "ج", exp: " سَقَطَتْ بَغْدَادُ عَاصِمَةُ الْخِلَاَفَةِ الْعَبَّاسِيَّةِ عَلَى يَدِ الْمَغُولِ بِقِيَادَةِ هُولَاكُوِ عَامِ 1258 م", link: "https://en.wikipedia.org/wiki/Siege_of_Baghdad_(1258)" },
-    en: { q: "In which year did the Mongols sack Baghdad?", options: { "A": "1187 CE", "B": "1453 CE", "C": "1258 CE", "D": "1099 CE" }, ans: "C", exp: "Baghdad, the Abbasid capital, fell to the Mongols under Hulagu Khan in 1258 CE.", link: "https://en.wikipedia.org/wiki/Siege_of_Baghdad_(1258)" }
+    en: { q: "In which year did the Mongols sack Baghdad?", options: { "A": "1187 CE", "B": "1453 CE", "C": "1258 CE", "D": "1099 CE" }, ans: "C", exp: "Baghdad, the Abbasid capital and jewel of the Islamic world, fell to the Mongols under Hulagu Khan in 1258 CE. Its legendary libraries were destroyed, marking the end of the Abbasid Caliphate and a devastating loss for Islamic civilisation.", link: "https://en.wikipedia.org/wiki/Siege_of_Baghdad_(1258)" }
   },
   {
     id: 77,
@@ -417,7 +417,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 78,
     ar: { q: " فِي أَيِّ عَامِ فَتْحِ الْعُثْمَانِيُّونَ الْقُسْطَنْطِينِيَّةَ ؟", options: { "أ": " 1258 م", "ب": " 1453 م", "ج": " 1492 م", "د": " 1517 م" }, ans: "ب", exp: " فَتْحُ السُّلْطَانِ مُحَمَّدَ الْفَاتِحِ الْقُسْطَنْطِينِيَّةِ عَامَ 1453 م", link: "https://en.wikipedia.org/wiki/Fall_of_Constantinople" },
-    en: { q: "In which year did the Ottomans conquer Constantinople?", options: { "A": "1258 CE", "B": "1453 CE", "C": "1492 CE", "D": "1517 CE" }, ans: "B", exp: "Sultan Mehmed II (Al-Fatih) conquered Constantinople in 1453 CE.", link: "https://en.wikipedia.org/wiki/Fall_of_Constantinople" }
+    en: { q: "In which year did the Ottomans conquer Constantinople?", options: { "A": "1258 CE", "B": "1453 CE", "C": "1492 CE", "D": "1517 CE" }, ans: "B", exp: "Sultan Mehmed II (The Conqueror) conquered Constantinople in 1453 CE at the age of 21, ending the Byzantine Empire. The city was renamed Istanbul and became the new capital of the Ottoman Empire.", link: "https://en.wikipedia.org/wiki/Fall_of_Constantinople" }
   },
   {
     id: 79,
@@ -427,27 +427,27 @@ export const questionsDB: QuestionData[] = [
   {
     id: 80,
     ar: { q: " مَا هُو 'بيت الحكمة' ؟", options: { "أ": " مَكْتَبَةٌ وَمَرْكَزُ عِلْمِيُّ فِي بَغْدَادِ", "ب": " مَسْجِدٌ فِي دِمَشْقِ", "ج": " قَصْرٌ فِي الْقَاهِرَةِ", "د": " حَصَّنَ فِي الْأَنْدَلُسِ" }, ans: "أ", exp: " بَيْتُ الْحُكْمَةِ كَان مَرْكَزًا عِلْميا وَثَقَافِيًّا فِي بَغْدَادِ فِي الْعَصْرِ الْعَبَّاسِيِّ", link: "https://en.wikipedia.org/wiki/House_of_Wisdom" },
-    en: { q: "What was the 'Bayt al-Hikmah' (House of Wisdom)?", options: { "A": "A library and academic centre in Baghdad", "B": "A mosque in Damascus", "C": "A palace in Cairo", "D": "A fortress in Al-Andalus" }, ans: "A", exp: "The House of Wisdom was a major intellectual centre in Baghdad during the Abbasid era.", link: "https://en.wikipedia.org/wiki/House_of_Wisdom" }
+    en: { q: "What was the 'Bayt al-Hikmah' (House of Wisdom)?", options: { "A": "A library and academic centre in Baghdad", "B": "A mosque in Damascus", "C": "A palace in Cairo", "D": "A fortress in Al-Andalus" }, ans: "A", exp: "The House of Wisdom was a major intellectual centre in Baghdad during the Abbasid era (8th–13th century). Scholars there translated Greek, Persian, and Indian works into Arabic, advancing mathematics, astronomy, medicine, and philosophy.", link: "https://en.wikipedia.org/wiki/House_of_Wisdom" }
   },
   {
     id: 81,
     ar: { q: " مَن يُعْرَفُ ب 'أبُو الجبر' ؟", options: { "أ": " اِبْنَ سِيِنَا", "ب": " الرَّازِيُّ", "ج": " اِبْنَ الْهَيْثَمِ", "د": " الخوارزمي" }, ans: "د", exp: " مُحَمَّدُ بْن مُوسَى الخوارزمي هُو الْعَالَمِ الَّذِي أُسُسِ عِلْمِ الْجَبْرِ فِي كِتَابِهِ الشَّهِيرِ", link: "https://en.wikipedia.org/wiki/Al-Khwarizmi" },
-    en: { q: "Who is known as the 'Father of Algebra'?", options: { "A": "Ibn Sina", "B": "Ar-Razi", "C": "Ibn al-Haytham", "D": "Al-Khwarizmi" }, ans: "D", exp: "Muhammad ibn Musa al-Khwarizmi founded algebra through his seminal work.", link: "https://en.wikipedia.org/wiki/Al-Khwarizmi" }
+    en: { q: "Who is known as the 'Father of Algebra'?", options: { "A": "Ibn Sina", "B": "Ar-Razi", "C": "Ibn al-Haytham", "D": "Al-Khwarizmi" }, ans: "D", exp: "Muhammad ibn Musa al-Khwarizmi (9th century) founded algebra through his book 'Al-Kitab al-Mukhtasar fi Hisab al-Jabr wal-Muqabala'. The word 'algebra' comes from 'al-jabr' in the title, and 'algorithm' derives from his Latinised name.", link: "https://en.wikipedia.org/wiki/Al-Khwarizmi" }
   },
   {
     id: 82,
     ar: { q: " مَعْرَكَةٌ عَيْن جَالُوتِ ( 1260 م ) أَوَقَفَتْ تَقَدُّمُ أَيِّ جَيْشٍ ؟", options: { "أ": " الصَّلِيبِيِّينَ", "ب": " الْمَغُولُ", "ج": " الْبِيزَنْطِيِّينَ", "د": " الْفَرَسُ" }, ans: "ب", exp: " مَعْرَكَةٌ عَيْن جَالُوتٍ أَوَقَفَتْ زَحْفُ الْمَغُولِ عَلَى يَدِ الْمَمَالِيكِ بِقِيَادَةِ قُطُزُ وبيبرس", link: "https://en.wikipedia.org/wiki/Battle_of_Ain_Jalut" },
-    en: { q: "The Battle of Ain Jalut (1260 CE) stopped the advance of which army?", options: { "A": "Crusaders", "B": "Mongols", "C": "Byzantines", "D": "Persians" }, ans: "B", exp: "The Battle of Ain Jalut halted the Mongol advance, won by the Mamluks under Qutuz and Baibars.", link: "https://en.wikipedia.org/wiki/Battle_of_Ain_Jalut" }
+    en: { q: "The Battle of Ain Jalut (1260 CE) stopped the advance of which army?", options: { "A": "Crusaders", "B": "Mongols", "C": "Byzantines", "D": "Persians" }, ans: "B", exp: "The Battle of Ain Jalut (1260 CE) in Palestine halted the seemingly unstoppable Mongol westward advance. The Mamluk forces under Sultan Qutuz and commander Baibars won a decisive victory, marking the first major Mongol defeat and saving Egypt and the Hijaz from invasion.", link: "https://en.wikipedia.org/wiki/Battle_of_Ain_Jalut" }
   },
   {
     id: 83,
     ar: { q: " مِن بُنَى قُبَّةِ الصَّخْرَةِ فِي الْقُدْسِ ؟", options: { "أ": " صَلَاَحُ الدِّينِ", "ب": " عُمَرُ بْن الْخِطَابَ", "ج": " عَبْدُ الْمَلِكِ بْن مروَانِ", "د": " هَارُونُ الرَّشيدِ" }, ans: "ج", exp: " بَنَى الْخَلِيفَةُ الْأُمَوِيُّ عَبْدَ الْمَلِكِ بْن مروَانِ قُبَّةَ الصَّخْرَةِ فِي الْقُدْسِ", link: "https://en.wikipedia.org/wiki/Dome_of_the_Rock" },
-    en: { q: "Who built the Dome of the Rock in Jerusalem?", options: { "A": "Salah ad-Din", "B": "Umar ibn Al-Khattab", "C": "Caliph Abdul-Malik ibn Marwan", "D": "Harun ar-Rashid" }, ans: "C", exp: "The Umayyad Caliph Abdul-Malik ibn Marwan built the Dome of the Rock in Jerusalem.", link: "https://en.wikipedia.org/wiki/Dome_of_the_Rock" }
+    en: { q: "Who built the Dome of the Rock in Jerusalem?", options: { "A": "Salah ad-Din", "B": "Umar ibn Al-Khattab", "C": "Caliph Abdul-Malik ibn Marwan", "D": "Harun ar-Rashid" }, ans: "C", exp: "The Umayyad Caliph Abdul-Malik ibn Marwan built the Dome of the Rock in Jerusalem around 691 CE. It stands over the rock from which the Prophet (PBUH) is believed to have ascended during the Mi'raj.", link: "https://en.wikipedia.org/wiki/Dome_of_the_Rock" }
   },
   {
     id: 84,
     ar: { q: " مِن أُسُسِ مَدِينَةِ بَغْدَادِ ؟", options: { "أ": " هَارُونُ الرَّشيدِ", "ب": " أَبُو جَعْفَرِ الْمَنْصُورِ", "ج": " الْمَأْمُونُ", "د": " مُعَاوِيَةُ بْن أبِي سُفْيَانٍ" }, ans: "ب", exp: " أَسَّسَ الْخَلِيفَةُ الْعَبَّاسِيُّ أَبُو جَعْفَرِ الْمَنْصُورِ مَدِينَةَ بَغْدَادِ عَامِ 762 م", link: "https://en.wikipedia.org/wiki/Baghdad" },
-    en: { q: "Who founded the city of Baghdad?", options: { "A": "Harun ar-Rashid", "B": "Caliph Abu Ja'far Al-Mansur", "C": "Al-Ma'mun", "D": "Mu'awiyah ibn Abi Sufyan" }, ans: "B", exp: "The Abbasid Caliph Abu Ja'far Al-Mansur founded Baghdad in 762 CE.", link: "https://en.wikipedia.org/wiki/Baghdad" }
+    en: { q: "Who founded the city of Baghdad?", options: { "A": "Harun ar-Rashid", "B": "Caliph Abu Ja'far Al-Mansur", "C": "Al-Ma'mun", "D": "Mu'awiyah ibn Abi Sufyan" }, ans: "B", exp: "The Abbasid Caliph Abu Ja'far Al-Mansur founded Baghdad in 762 CE as the new capital of the Abbasid Caliphate. Originally called 'Madinat as-Salam' (City of Peace), it grew into one of the largest and most prosperous cities in the world during the Islamic Golden Age.", link: "https://en.wikipedia.org/wiki/Baghdad" }
   },
   // --- MIXED / ADDITIONAL ---
   {
@@ -468,7 +468,7 @@ export const questionsDB: QuestionData[] = [
   {
     id: 88,
     ar: { q: " كَمٌّ كَان عَدَدِ الْمُسْلِمِينَ تَقْريبًا فِي غَزْوَةٍ بِدُرٍّ ؟", options: { "أ": " 1000", "ب": " 700", "ج": " 313", "د": " 500" }, ans: "ج", exp: " كَان عَدَدِ الْمُسْلِمِينَ فِي غَزْوَةٍ بِدُرِّ حَوَالِيِّ 313 مُقَاتِلًا مُقَابِلَ نَحوِ 1000 مِن قُرَيْشٍ", link: "https://islamqa.info/ar/answers/12572" },
-    en: { q: "Approximately how many Muslims fought at the Battle of Badr?", options: { "A": "1,000", "B": "700", "C": "313", "D": "500" }, ans: "C", exp: "There were approximately 313 Muslim fighters against around 1,000 Quraysh soldiers at Badr.", link: "https://islamqa.info/en/answers/12572" }
+    en: { q: "Approximately how many Muslims fought at the Battle of Badr?", options: { "A": "1,000", "B": "700", "C": "313", "D": "500" }, ans: "C", exp: "About 313 poorly-equipped Muslim fighters faced around 1,000 Quraysh soldiers at the Battle of Badr (2 AH / 624 CE). Despite being vastly outnumbered, the Muslims achieved a decisive victory with divine aid — the first major battle in Islam and a turning point for the Muslim community.", link: "https://islamqa.info/en/answers/12572" }
   },
   {
     id: 89,
@@ -493,22 +493,22 @@ export const questionsDB: QuestionData[] = [
   {
     id: 93,
     ar: { q: " كَم عَدَدِ أَبْوَابِ الْجَنَّةِ ؟", options: { "أ": " 6", "ب": " 7", "ج": " 10", "د": " 8" }, ans: "د", exp: " لِلَجْنَةُ ثَمَانِيَةٍ أَبَوَّابٌ كَمَا وَرَدٌّ فِي الْأَحَادِيثِ الصَّحِيحَةِ", link: "https://sunnah.com/bukhari:3257" },
-    en: { q: "How many gates does Jannah (Paradise) have?", options: { "A": "6", "B": "7", "C": "10", "D": "8" }, ans: "D", exp: "Jannah has eight gates, as mentioned in authentic ahadith.", link: "https://sunnah.com/bukhari:3257" }
+    en: { q: "How many gates does Jannah (Paradise) have?", options: { "A": "6", "B": "7", "C": "10", "D": "8" }, ans: "D", exp: "Jannah has eight gates, as mentioned in authentic ahadith. Among them is 'Ar-Rayyan', reserved for those who frequently fasted, and 'Baab as-Salah' for those devoted to prayer.", link: "https://sunnah.com/bukhari:3257" }
   },
   {
     id: 94,
     ar: { q: " مَتَى فُرِضَتْ الصَّلَوَاتُ الْخُمُسَ عَلَى الْمُسْلِمِينَ ؟", options: { "أ": " فِي لَيْلَةِ الْإِسْرَاءِ وَالْمِعْرَاجِ", "ب": " بَعْد الْهِجْرَةِ", "ج": " فِي غَزْوَةٍ بِدُرٍّ", "د": " عِنْد فَتَحَ مَكَّةٌ" }, ans: "أ", exp: " فُرِضَتْ الصَّلَوَاتُ الْخُمُسَ فِي لَيْلَةِ الْإِسْرَاءِ وَالْمِعْرَاجِ", link: "https://sunnah.com/bukhari:349" },
-    en: { q: "When were the five daily prayers made obligatory?", options: { "A": "During the Isra and Mi'raj", "B": "After the Hijrah", "C": "At the Battle of Badr", "D": "At the Conquest of Makkah" }, ans: "A", exp: "The five daily prayers were made obligatory during the night of Al-Isra wal-Mi'raj.", link: "https://sunnah.com/bukhari:349" }
+    en: { q: "When were the five daily prayers made obligatory?", options: { "A": "During the Isra and Mi'raj", "B": "After the Hijrah", "C": "At the Battle of Badr", "D": "At the Conquest of Makkah" }, ans: "A", exp: "The five daily prayers were made obligatory during the night of Al-Isra wal-Mi'raj. Originally fifty prayers were prescribed, but through the Prophet Musa's (AS) advice and repeated requests by the Prophet Muhammad (PBUH), they were reduced to five with the reward of fifty.", link: "https://sunnah.com/bukhari:349" }
   },
   {
     id: 95,
     ar: { q: " مَنٌّ هُو الصَّحَابِيِّ الْمُلَقِّبِ ب 'ذُو النورين' ؟", options: { "أ": " أَبُو بِكْرِ الصَّدِيقِ", "ب": " عُثْمَانُ بْن عَفَّانِ", "ج": " عُلِيَ بْن أبِي طَالِبٍ", "د": " عُمَرُ بْن الْخِطَابَ" }, ans: "ب", exp: " عُثْمَانُ بْن عَفَّانِ ( رَضِّيَّ الْلَّهُ عَنْهُ ) لُقِّبَ بذِي النُّورَيْنِ لأَنّهُ تَزَوُّجَ اِبْنَتَيْنِ مِن بنَاتِ النَّبِيِّ ﷺ", link: "https://islamqa.info/ar/answers/98650" },
-    en: { q: "Which Companion was known as 'Dhun-Nurayn' (Possessor of Two Lights)?", options: { "A": "Abu Bakr As-Siddiq", "B": "Uthman ibn Affan", "C": "Ali ibn Abi Talib", "D": "Umar ibn Al-Khattab" }, ans: "B", exp: "Uthman ibn Affan (RA) was called Dhun-Nurayn because he married two of the Prophet's (PBUH) daughters.", link: "https://islamqa.info/en/answers/98650" }
+    en: { q: "Which Companion was known as 'Dhun-Nurayn' (Possessor of Two Lights)?", options: { "A": "Abu Bakr As-Siddiq", "B": "Uthman ibn Affan", "C": "Ali ibn Abi Talib", "D": "Umar ibn Al-Khattab" }, ans: "B", exp: "Uthman ibn Affan (RA) was called Dhun-Nurayn ('Possessor of Two Lights') because he married two of the Prophet's (PBUH) daughters: first Ruqayyah, and after her passing, Umm Kulthum (may Allah be pleased with them both).", link: "https://islamqa.info/en/answers/98650" }
   },
   {
     id: 96,
     ar: { q: " مَنٌّ هُو الرَّحَّالَةِ الْمُسْلِمِ الشَّهِيرِ الَّذِي طَافٍ الْعَالَمِ الْإِسْلَامِيِّ ؟", options: { "أ": " اِبْنَ سِيِنَا", "ب": " الإدريسي", "ج": " اِبْنَ بُطوطَةٍ", "د": " اِبْنَ خَلْدُونٍ" }, ans: "ج", exp: " اِبْنَ بُطوطَةٍ رَحَّالَةٍ مَغْرِبِيٍّ شَهِيرٍ طَافٍ الْعَالَمَ الْإِسْلَامِيِّ وَتَرْكِ رِحْلَتِهِ الْمَعْرُوفَةِ", link: "https://en.wikipedia.org/wiki/Ibn_Battuta" },
-    en: { q: "Who was the famous Muslim traveller who journeyed across the Muslim world?", options: { "A": "Ibn Sina", "B": "Al-Idrisi", "C": "Ibn Battuta", "D": "Ibn Khaldun" }, ans: "C", exp: "Ibn Battuta was a renowned Moroccan explorer who travelled extensively across the Muslim world.", link: "https://en.wikipedia.org/wiki/Ibn_Battuta" }
+    en: { q: "Who was the famous Muslim traveller who journeyed across the Muslim world?", options: { "A": "Ibn Sina", "B": "Al-Idrisi", "C": "Ibn Battuta", "D": "Ibn Khaldun" }, ans: "C", exp: "Ibn Battuta (1304–1369 CE) was a Moroccan scholar and explorer who spent nearly 30 years travelling across Africa, the Middle East, Central Asia, South Asia, and China — covering about 120,000 km, far more than Marco Polo.", link: "https://en.wikipedia.org/wiki/Ibn_Battuta" }
   },
   {
     id: 97,
