@@ -1,16 +1,25 @@
+export type ArOptionKey = "أ" | "ب" | "ج" | "د";
+export type EnOptionKey = "A" | "B" | "C" | "D";
+
+export const AR_OPTION_KEYS: ArOptionKey[] = ["أ", "ب", "ج", "د"];
+export const EN_OPTION_KEYS: EnOptionKey[] = ["A", "B", "C", "D"];
+
+export const arToEnKey: Record<ArOptionKey, EnOptionKey> = { "أ": "A", "ب": "B", "ج": "C", "د": "D" };
+export const enToArKey: Record<EnOptionKey, ArOptionKey> = { "A": "أ", "B": "ب", "C": "ج", "D": "د" };
+
 export interface QuestionData {
   id: number;
   ar: {
     q: string;
-    options: Record<string, string>;
-    ans: string;
+    options: Record<ArOptionKey, string>;
+    ans: ArOptionKey;
     exp: string;
     link: string;
   };
   en: {
     q: string;
-    options: Record<string, string>;
-    ans: string;
+    options: Record<EnOptionKey, string>;
+    ans: EnOptionKey;
     exp: string;
     link: string;
   };
