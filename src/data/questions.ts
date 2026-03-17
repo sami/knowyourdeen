@@ -522,3 +522,19 @@ export const questionsDB: QuestionData[] = [
     en: { q: "What was the Treaty of Hudaybiyyah?", options: { "A": "A peace agreement between the Muslims and Quraysh in 6 AH", "B": "A treaty with the Jews of Madinah", "C": "A pact with the Christians of Najran", "D": "An alliance among Arab tribes" }, ans: "A", exp: "The Treaty of Hudaybiyyah was a peace agreement between the Muslims and Quraysh in 6 AH, described by Allah (SWT) as a clear victory.", link: "https://islamqa.info/en/answers/78675" }
   },
 ];
+
+export interface CategoryMeta {
+  id: string;
+  ar: string;
+  en: string;
+  startId: number;
+  endId: number;
+}
+
+export const CATEGORIES: CategoryMeta[] = [
+  { id: 'quran', ar: 'القرآن', en: 'Quran', startId: 1, endId: 30 },
+  { id: 'sunnah', ar: 'السنة', en: 'Sunnah', startId: 31, endId: 48 },
+  { id: 'seerah', ar: 'السيرة', en: 'Seerah', startId: 49, endId: 65 },
+  { id: 'history', ar: 'التاريخ', en: 'History', startId: 66, endId: 84 },
+  { id: 'mixed', ar: 'متنوع', en: 'Mixed', startId: 85, endId: 100 },
+];

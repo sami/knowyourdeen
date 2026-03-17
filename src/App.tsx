@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { Globe, Play, CheckCircle, XCircle, RefreshCw, Trash2, AlertTriangle, Instagram } from 'lucide-react';
+import { Globe, Play, CheckCircle, XCircle, RefreshCw, Trash2, AlertTriangle, Instagram, BookOpen } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { questionsDB } from './data/questions';
+import Library from './Library';
 
 // --- SVGs ---
 const MoonIcon = ({ className }: { className?: string }) => (
@@ -59,7 +60,7 @@ export default function App() {
   const savedState = useMemo(() => getInitialState(), []);
 
   const [lang, setLang] = useState<'ar' | 'en'>(savedState?.lang || 'en');
-  const [gameState, setGameState] = useState<'setup' | 'playing' | 'finished'>(savedState?.gameState || 'setup');
+  const [gameState, setGameState] = useState<'setup' | 'playing' | 'finished' | 'library'>(savedState?.gameState || 'setup');
   const [players, setPlayers] = useState<Player[]>(savedState?.players || [{ id: 0, name: '' }]);
   const [questionsPerPlayer, setQuestionsPerPlayer] = useState<number>(savedState?.questionsPerPlayer || 0);
 
@@ -240,6 +241,9 @@ export default function App() {
           <h1 className="text-xl font-bold opacity-80">{txt.title[lang]}</h1>
         </div>
         <div className="flex items-center gap-2">
+          <button onClick={() => setGameState(gameState === 'library' ? 'setup' : 'library')} className="p-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all text-teal-600" title={lang === 'ar' ? 'مكتبة الأسئلة' : 'Questions Library'} aria-label={lang === 'ar' ? 'مكتبة الأسئلة' : 'Questions Library'}>
+            <BookOpen className="w-5 h-5" aria-hidden="true" />
+          </button>
           <button onClick={() => setShowResetModal(true)} className="p-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all text-red-500" title={lang === 'ar' ? 'إعادة تعيين اللعبة' : 'Reset Game'} aria-label={lang === 'ar' ? 'إعادة تعيين اللعبة' : 'Reset Game'}>
             <Trash2 className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -252,6 +256,11 @@ export default function App() {
 
       {/* MAIN CONTAINER */}
       <div className="flex-1 w-full max-w-4xl p-4 flex flex-col justify-center pb-12">
+
+        {/* === LIBRARY SCREEN === */}
+        {gameState === 'library' && (
+          <Library lang={lang} onBack={() => setGameState('setup')} />
+        )}
 
         {/* === SETUP SCREEN === */}
         {gameState === 'setup' && (
