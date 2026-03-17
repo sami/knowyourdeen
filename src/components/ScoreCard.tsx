@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { toPng } from 'html-to-image';
+import { Download } from 'lucide-react';
 import type { Lang } from '../i18n/translations';
 import { t } from '../i18n/translations';
 
@@ -87,30 +88,23 @@ function ScoreCardContent({ rankings, totalQuestions, lang }: ShareScoreCardProp
 
 export function ShareScoreCard({ rankings, totalQuestions, lang }: ShareScoreCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [sharing, setSharing] = useState(false);
+  const [downloading, setDownloading] = useState(false);
 
-  const handleShare = async () => {
-    if (!cardRef.current || sharing) return;
-    setSharing(true);
+  const handleDownload = async () => {
+    if (!cardRef.current || downloading) return;
+    setDownloading(true);
     try {
       const dataUrl = await toPng(cardRef.current, { quality: 0.95, pixelRatio: 2 });
-      const blob = await (await fetch(dataUrl)).blob();
-      const file = new File([blob], 'knowyourdeen-score.png', { type: 'image/png' });
-
-      if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file] });
-      } else {
-        const a = document.createElement('a');
-        a.href = dataUrl;
-        a.download = 'knowyourdeen-score.png';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = 'knowyourdeen-score.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     } catch {
-      // User cancelled share or error occurred
+      // Error generating image
     }
-    setSharing(false);
+    setDownloading(false);
   };
 
   return (
@@ -121,18 +115,16 @@ export function ShareScoreCard({ rankings, totalQuestions, lang }: ShareScoreCar
         </div>
       </div>
       <button
-        onClick={handleShare}
-        disabled={sharing}
+        onClick={handleDownload}
+        disabled={downloading}
         className="w-full py-3 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white rounded-xl font-bold text-base shadow transition-all flex items-center justify-center gap-2"
       >
-        {sharing ? (
+        {downloading ? (
           <span className="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full" />
         ) : (
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-          </svg>
+          <Download className="w-5 h-5" />
         )}
-        {t('shareScoreCard', lang)}
+        {t('downloadScoreCard', lang)}
       </button>
     </>
   );

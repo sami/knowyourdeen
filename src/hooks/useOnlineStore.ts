@@ -89,6 +89,14 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
     const myId = get().myPlayerId;
     const isJoined = state.players.some(p => p.id === myId);
 
+    // If we were in a game screen but got removed from the room
+    if (!isJoined && get().screen !== 'setup') {
+      const socket = get().socket;
+      if (socket) socket.close();
+      set({ ...initialState, error: 'removedFromRoom' });
+      return;
+    }
+
     const scores: Record<string, number> = {};
     for (const p of state.players) {
       scores[p.id] = p.score;

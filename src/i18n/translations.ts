@@ -65,9 +65,7 @@ const translations = {
   yourTurn: { ar: "دورك!", en: "Your turn!" },
   waitingForTurn: { ar: "في انتظار {name}...", en: "Waiting for {name}..." },
   timedOut: { ar: "انتهى الوقت!", en: "Time's up!" },
-
-  // Score card sharing
-  shareScoreCard: { ar: "شارك بطاقة النتيجة", en: "Share Score Card" },
+  downloadScoreCard: { ar: "حفظ بطاقة النتيجة", en: "Download Score Card" },
 
   // Online errors
   reconnecting: { ar: "جاري إعادة الاتصال...", en: "Reconnecting..." },
@@ -76,6 +74,7 @@ const translations = {
   notHost: { ar: "فقط المضيف يمكنه فعل ذلك", en: "Only the host can do that" },
   needMorePlayers: { ar: "تحتاج لاعبين اثنين على الأقل", en: "Need at least 2 players" },
   connectionLost: { ar: "انقطع الاتصال", en: "Connection lost" },
+  removedFromRoom: { ar: "تمت إزالتك من الغرفة بسبب انقطاع الاتصال", en: "You were removed from the room due to disconnection" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

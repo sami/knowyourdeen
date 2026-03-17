@@ -8,6 +8,7 @@ const ROOM_EXPIRY_LOBBY_MS = 15 * 60 * 1000;
 const ROOM_EXPIRY_PLAYING_MS = 30 * 60 * 1000;
 const ROOM_EXPIRY_FINISHED_MS = 10 * 60 * 1000;
 const EXPLANATION_PAUSE_MS = 5000;
+const LOBBY_DISCONNECT_GRACE_MS = 10_000;
 
 interface RoomState {
   roomCode: string;
@@ -23,7 +24,8 @@ interface RoomState {
   showExplanation: boolean;
   turnDeadline: number | null;
   turnTimeoutSeconds: number;
-  alarmPurpose: 'turn-timeout' | 'auto-advance' | 'room-expiry' | null;
+  lobbyDisconnectTimes: Record<string, number>;
+  alarmPurpose: 'turn-timeout' | 'auto-advance' | 'room-expiry' | 'lobby-remove' | null;
 }
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -53,6 +55,7 @@ export default class GameRoom implements Party.Server {
       showExplanation: false,
       turnDeadline: null,
       turnTimeoutSeconds: TURN_TIMEOUT_SECONDS,
+      lobbyDisconnectTimes: {},
       alarmPurpose: null,
     };
   }
@@ -117,6 +120,7 @@ export default class GameRoom implements Party.Server {
     const existing = this.state.players.find(p => p.id === connection.id);
     if (existing) {
       existing.connected = true;
+      delete this.state.lobbyDisconnectTimes[connection.id];
       this.send(connection, { type: "room-state", state: this.getSnapshot() });
       this.broadcast({ type: "player-reconnected", playerId: connection.id }, [connection.id]);
       return;
@@ -166,7 +170,15 @@ export default class GameRoom implements Party.Server {
     player.connected = false;
     this.broadcast({ type: "player-disconnected", playerId: connection.id });
 
-    // If host left, promote next connected player after a delay
+    // In lobby, start grace period before removing the player
+    if (this.state.phase === "lobby") {
+      this.state.lobbyDisconnectTimes[connection.id] = Date.now();
+      if (this.state.alarmPurpose !== "lobby-remove") {
+        this.scheduleAlarm(LOBBY_DISCONNECT_GRACE_MS, "lobby-remove");
+      }
+    }
+
+    // If host left, promote next connected player
     if (connection.id === this.state.hostId) {
       const nextHost = this.getConnectedPlayers()[0];
       if (nextHost) {
@@ -193,6 +205,9 @@ export default class GameRoom implements Party.Server {
         break;
       case "auto-advance":
         this.advanceToNextQuestion();
+        break;
+      case "lobby-remove":
+        this.handleLobbyRemove();
         break;
       case "room-expiry":
         // Close all connections if room expired
@@ -253,6 +268,10 @@ export default class GameRoom implements Party.Server {
       return;
     }
     if (this.state.phase !== "lobby") return;
+
+    // Clean up disconnected players before starting
+    this.state.players = this.state.players.filter(p => p.connected);
+    this.state.lobbyDisconnectTimes = {};
 
     const connectedCount = this.getConnectedPlayers().length;
     if (connectedCount < 2) {
@@ -362,6 +381,47 @@ export default class GameRoom implements Party.Server {
     this.scheduleAlarm(3000, "auto-advance");
   }
 
+  handleLobbyRemove() {
+    if (this.state.phase !== "lobby") return;
+
+    const now = Date.now();
+    const toRemove: string[] = [];
+    let nextRemovalMs = Infinity;
+
+    for (const [playerId, disconnectTime] of Object.entries(this.state.lobbyDisconnectTimes)) {
+      const elapsed = now - disconnectTime;
+      if (elapsed >= LOBBY_DISCONNECT_GRACE_MS) {
+        toRemove.push(playerId);
+      } else {
+        nextRemovalMs = Math.min(nextRemovalMs, LOBBY_DISCONNECT_GRACE_MS - elapsed);
+      }
+    }
+
+    for (const playerId of toRemove) {
+      this.state.players = this.state.players.filter(p => p.id !== playerId);
+      delete this.state.lobbyDisconnectTimes[playerId];
+      this.broadcast({ type: "player-left", playerId });
+    }
+
+    // If host was removed, promote next connected player
+    if (toRemove.includes(this.state.hostId)) {
+      const nextHost = this.getConnectedPlayers()[0];
+      if (nextHost) {
+        this.state.hostId = nextHost.id;
+        this.broadcast({ type: "host-changed", newHostId: nextHost.id });
+      }
+    }
+
+    // Schedule next alarm
+    if (nextRemovalMs < Infinity) {
+      this.scheduleAlarm(nextRemovalMs, "lobby-remove");
+    } else if (this.getConnectedPlayers().length > 0) {
+      this.scheduleAlarm(ROOM_EXPIRY_LOBBY_MS, "room-expiry");
+    } else {
+      this.scheduleAlarm(60_000, "room-expiry");
+    }
+  }
+
   handleRestartGame(sender: Party.Connection) {
     if (sender.id !== this.state.hostId) {
       this.send(sender, { type: "error", message: "notHost" });
@@ -384,6 +444,7 @@ export default class GameRoom implements Party.Server {
 
     // Remove disconnected players
     this.state.players = this.state.players.filter(p => p.connected);
+    this.state.lobbyDisconnectTimes = {};
 
     this.broadcast({ type: "room-state", state: this.getSnapshot() });
     this.scheduleAlarm(ROOM_EXPIRY_LOBBY_MS, "room-expiry");

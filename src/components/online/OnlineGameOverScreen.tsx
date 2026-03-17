@@ -2,6 +2,7 @@ import { RefreshCw, LogOut, Globe } from 'lucide-react';
 import { useGameStore } from '../../hooks/useGameStore';
 import { useOnlineStore } from '../../hooks/useOnlineStore';
 import { t } from '../../i18n/translations';
+import { ShareButtons } from '../ShareButtons';
 import { ShareScoreCard } from '../ScoreCard';
 import { ConnectionStatus } from './ConnectionStatus';
 
@@ -16,6 +17,13 @@ export function OnlineGameOverScreen({ onBack }: OnlineGameOverScreenProps) {
   const isHost = myPlayerId === hostId;
 
   if (!rankings || rankings.length === 0) return null;
+
+  const myRanking = rankings.find(r => r.id === myPlayerId);
+  const myScore = myRanking?.score ?? 0;
+  const totalQuestions = questionsPerRound;
+  const shareMessage = t('shareScoreMsg', lang)
+    .replace('{score}', String(myScore))
+    .replace('{total}', String(totalQuestions));
 
   const handleLeave = () => {
     disconnect();
@@ -67,8 +75,10 @@ export function OnlineGameOverScreen({ onBack }: OnlineGameOverScreenProps) {
         ))}
       </div>
 
-      <div className="mb-6">
+      <div className="mb-6 space-y-3">
+        <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('share', lang)}</p>
         <ShareScoreCard rankings={rankings} totalQuestions={questionsPerRound} lang={lang} />
+        <ShareButtons message={shareMessage} lang={lang} />
       </div>
 
       {isHost ? (
