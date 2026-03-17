@@ -15,19 +15,19 @@ const PLAYER_THEMES = [
   "bg-teal-50",
   "bg-blue-50",
   "bg-orange-50",
-  "bg-slate-50"
+  "bg-purple-50"
 ];
 
 const CARD_THEMES = [
   "bg-teal-100 text-teal-900 border-teal-200",
   "bg-blue-100 text-blue-900 border-blue-200",
   "bg-orange-100 text-orange-900 border-orange-200",
-  "bg-slate-100 text-slate-900 border-slate-200"
+  "bg-purple-100 text-purple-900 border-purple-200"
 ];
 
 // Static map for dynamic MoonIcon colours (ensures Tailwind detects them)
-const MOON_COLORS = ['text-teal-600', 'text-blue-600', 'text-orange-600', 'text-slate-600'];
-const PLAYER_DOT_COLORS = ['bg-teal-400', 'bg-blue-400', 'bg-orange-400', 'bg-slate-400'];
+const MOON_COLORS = ['text-teal-600', 'text-blue-600', 'text-orange-600', 'text-purple-600'];
+const PLAYER_DOT_COLORS = ['bg-teal-400', 'bg-blue-400', 'bg-orange-400', 'bg-purple-400'];
 
 // Utility: Shuffle Array
 const shuffleArray = <T,>(array: T[]): T[] => {
