@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <main dir={isRTL ? 'rtl' : 'ltr'} className={`min-h-screen transition-colors duration-500 font-sans flex flex-col items-center ${currentTheme}`}>
-      {appMode === 'local' && <TopBar />}
+      {appMode === 'local' && gameScreen !== 'setup' && <TopBar />}
 
       <div className="flex-1 w-full max-w-4xl p-4 flex flex-col justify-center pb-12">
         {appMode === 'menu' && (
@@ -69,7 +69,7 @@ export default function App() {
         {appMode === 'local' && (
           <>
             {gameScreen === 'library' && <Library lang={lang} onBack={() => setGameScreen('setup')} />}
-            {gameScreen === 'setup' && <SetupScreen />}
+            {gameScreen === 'setup' && <SetupScreen onBack={() => setAppMode('menu')} />}
             {gameScreen === 'playing' && <PlayingScreen />}
             {gameScreen === 'finished' && <GameOverScreen />}
           </>

@@ -1,16 +1,37 @@
-import { Play } from 'lucide-react';
+import { Play, ArrowLeft, Globe } from 'lucide-react';
 import { MoonIcon } from './MoonIcon';
 import { useGameStore } from '../hooks/useGameStore';
 import { t } from '../i18n/translations';
 
 const PLAYER_DOT_COLORS = ['bg-teal-400', 'bg-blue-400', 'bg-orange-400', 'bg-purple-400'];
 
-export function SetupScreen() {
-  const { lang, players, handlePlayerCountChange, updatePlayerName, startGame } = useGameStore();
+interface SetupScreenProps {
+  onBack: () => void;
+}
+
+export function SetupScreen({ onBack }: SetupScreenProps) {
+  const { lang, toggleLang, players, handlePlayerCountChange, updatePlayerName, startGame } = useGameStore();
   const isRTL = lang === 'ar';
 
   return (
     <div className="bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-xl w-full max-w-md mx-auto text-center">
+      <div className="flex items-center justify-between mb-6">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-teal-600 hover:text-teal-800 font-medium transition-colors"
+        >
+          <ArrowLeft className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+          {t('back', lang)}
+        </button>
+        <button
+          onClick={toggleLang}
+          className="flex items-center gap-2 px-3 py-1.5 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all font-medium text-sm"
+          aria-label={t('switchLangLabel', lang)}
+        >
+          <Globe className="w-4 h-4" aria-hidden="true" />
+          {t('switchLangText', lang)}
+        </button>
+      </div>
       <p
         className="text-teal-700/60 font-medium mb-6 mt-2 tracking-widest text-lg"
         style={{ fontFamily: '"Traditional Arabic", "Amiri", "Scheherazade New", serif' }}
