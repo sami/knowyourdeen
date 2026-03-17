@@ -1,5 +1,6 @@
 import { Globe, Trash2, BookOpen } from 'lucide-react';
 import { MoonIcon } from './MoonIcon';
+import { SharePopover } from './SharePopover';
 import { useGameStore } from '../hooks/useGameStore';
 import { t } from '../i18n/translations';
 
@@ -23,6 +24,7 @@ export function TopBar() {
         >
           <BookOpen className="w-5 h-5" aria-hidden="true" />
         </button>
+        <SharePopover />
         <button
           onClick={() => setShowResetModal(true)}
           className="p-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all text-red-500"

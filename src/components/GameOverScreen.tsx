@@ -1,13 +1,19 @@
 import { RefreshCw } from 'lucide-react';
 import { useGameStore } from '../hooks/useGameStore';
 import { t } from '../i18n/translations';
+import { ShareButtons } from './ShareButtons';
 
 export function GameOverScreen() {
-  const { lang, players, playerScores, confirmReset } = useGameStore();
+  const { lang, players, playerScores, questionsPerPlayer, confirmReset } = useGameStore();
 
   const ranked = players
     .map((p, i) => ({ ...p, score: playerScores[i] }))
     .sort((a, b) => b.score - a.score);
+
+  const topScore = ranked[0]?.score ?? 0;
+  const shareMessage = t('shareScoreMsg', lang)
+    .replace('{score}', String(topScore))
+    .replace('{total}', String(questionsPerPlayer));
 
   return (
     <div className="bg-white/90 backdrop-blur-lg p-10 rounded-3xl shadow-2xl w-full max-w-lg mx-auto text-center animate-fade-in">
@@ -31,6 +37,10 @@ export function GameOverScreen() {
             </span>
           </div>
         ))}
+      </div>
+      <div className="mb-6">
+        <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('share', lang)}</p>
+        <ShareButtons message={shareMessage} lang={lang} />
       </div>
       <button
         onClick={confirmReset}

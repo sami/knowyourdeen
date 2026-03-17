@@ -34,6 +34,12 @@ const translations = {
   basmala: { ar: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ", en: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ" },
   errorTitle: { ar: "حدث خطأ", en: "Something went wrong" },
   errorReload: { ar: "إعادة تحميل", en: "Reload" },
+  share: { ar: "مشاركة", en: "Share" },
+  shareWhatsApp: { ar: "واتساب", en: "WhatsApp" },
+  shareCopyLink: { ar: "نسخ الرابط", en: "Copy Link" },
+  copied: { ar: "تم النسخ!", en: "Copied!" },
+  shareScoreMsg: { ar: "حصلت على {score}/{total} في اعرف دينك! اختبر معلوماتك الإسلامية: https://knowyourdeen.co.uk", en: "I scored {score}/{total} on Know Your Deen! Test your Islamic knowledge: https://knowyourdeen.co.uk" },
+  shareAppMsg: { ar: "تحدَّ معلوماتك الإسلامية مع اعرف دينك! https://knowyourdeen.co.uk", en: "Challenge your Islamic knowledge with Know Your Deen! https://knowyourdeen.co.uk" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
