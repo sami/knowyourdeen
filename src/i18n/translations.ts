@@ -30,7 +30,6 @@ const translations = {
   defaultPlayer: { ar: "لاعب", en: "Player" },
   selectPlayerLabel: { ar: "اختيار", en: "Select" },
   players: { ar: "لاعب", en: "player" },
-  source: { ar: "المصدر", en: "Source" },
   basmala: { ar: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ", en: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ" },
   errorTitle: { ar: "حدث خطأ", en: "Something went wrong" },
   errorReload: { ar: "إعادة تحميل", en: "Reload" },

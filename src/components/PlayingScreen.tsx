@@ -132,14 +132,6 @@ export function PlayingScreen() {
               <div className="bg-white/60 p-4 rounded-xl text-gray-800 mt-2">
                 <p className={`leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>{qData.exp}</p>
               </div>
-              <a
-                href={qData.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`text-sm font-semibold text-teal-600 hover:text-teal-800 hover:underline ${isRTL ? 'text-right' : 'text-left'}`}
-              >
-                {t('source', lang)} ↗
-              </a>
             </div>
             <button
               onClick={nextTurn}
