@@ -142,7 +142,7 @@ export default function App() {
     setPlayers(validPlayers);
 
     const numPlayers = validPlayers.length;
-    const qPerPlayer = Math.floor(questionsDB.length / numPlayers);
+    const qPerPlayer = Math.min(25, Math.floor(questionsDB.length / numPlayers));
     setQuestionsPerPlayer(qPerPlayer);
 
     const shuffledDB = shuffleArray(questionsDB);
