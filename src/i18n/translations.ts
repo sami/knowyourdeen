@@ -1,7 +1,7 @@
 export type Lang = 'ar' | 'en';
 
 const translations = {
-  title: { ar: "اِعْرِفْ دِينَك", en: "Know Your Deen" },
+  title: { ar: "اِعْرِفْ دِينَكَ", en: "Know Your Deen" },
   subtitle: { ar: "تَحَدِّي الْأَسْئِلَةِ الدِّينِيَّةِ", en: "Challenge your Islamic knowledge" },
   setupPlayers: { ar: "عَدَدُ اللَّاعِبِينَ:", en: "Number of Players:" },
   startBtn: { ar: "اِبْدَأ اللَّعِبَ", en: "Start Game" },
