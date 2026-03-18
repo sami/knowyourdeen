@@ -324,7 +324,12 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
     });
 
     socket.addEventListener('open', () => {
-      set({ connected: true });
+      // Use socket.id to guarantee myPlayerId matches server's connection.id
+      const actualId = socket.id;
+      set({ connected: true, myPlayerId: actualId });
+      // Sync localStorage with the actual ID the server sees
+      const key = PLAYER_ID_PREFIX + roomCode;
+      localStorage.setItem(key, JSON.stringify({ id: actualId, ts: Date.now() }));
       // Always send join — server handles reconnection (updates name if changed)
       socket.send(JSON.stringify({ type: 'join', name: playerName }));
     });
