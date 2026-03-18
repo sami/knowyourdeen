@@ -76,6 +76,7 @@ const translations = {
   removedFromRoom: { ar: "تمت إزالتك من الغرفة بسبب انقطاع الاتصال", en: "You were removed from the room due to disconnection" },
   rejoinRoom: { ar: "العودة للغرفة", en: "Rejoin Room" },
   copyImage: { ar: "نسخ الصورة", en: "Copy Image" },
+  connectionTimeout: { ar: "تعذر الاتصال بالخادم، حاول مرة أخرى", en: "Could not connect to server, please try again" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

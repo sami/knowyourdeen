@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# PartyKit
+.partykit/
+
+# Python / dev scripts
+venv/
+add_harakat.py
+QUESTIONS.md

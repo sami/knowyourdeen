@@ -151,9 +151,9 @@ export function LobbyScreen({ onBack }: LobbyScreenProps) {
                 {player.id === myPlayerId && !editingName && (
                   <button
                     onClick={() => { setNameDraft(player.name); setEditingName(true); }}
-                    className="p-1 text-gray-400 hover:text-teal-600 transition-colors"
+                    className="p-2 -m-1 text-gray-400 hover:text-teal-600 transition-colors"
                   >
-                    <Pencil className="w-3.5 h-3.5" />
+                    <Pencil className="w-4 h-4" />
                   </button>
                 )}
                 {player.id === myPlayerId && (

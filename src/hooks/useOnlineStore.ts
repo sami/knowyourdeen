@@ -323,7 +323,15 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
       error: null,
     });
 
+    const timeout = setTimeout(() => {
+      if (get().connecting) {
+        socket.close();
+        set({ ...initialState, error: 'connectionTimeout' });
+      }
+    }, 10_000);
+
     socket.addEventListener('open', () => {
+      clearTimeout(timeout);
       // Use socket.id to guarantee myPlayerId matches server's connection.id
       const actualId = socket.id;
       set({ connected: true, myPlayerId: actualId });
