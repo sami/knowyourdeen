@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Plus, LogIn, ArrowLeft, Globe, Loader2 } from 'lucide-react';
+import { Plus, LogIn, ArrowLeft, Globe, Loader2, RotateCcw } from 'lucide-react';
 import { useGameStore } from '../../hooks/useGameStore';
-import { useOnlineStore } from '../../hooks/useOnlineStore';
+import { useOnlineStore, getLastRoom } from '../../hooks/useOnlineStore';
 import translations, { t } from '../../i18n/translations';
 import type { TranslationKey } from '../../i18n/translations';
 
@@ -13,6 +13,7 @@ export function OnlineSetupScreen({ onBack }: OnlineSetupScreenProps) {
   const { lang, toggleLang } = useGameStore();
   const { createRoom, joinRoom, error, clearError, connecting } = useOnlineStore();
   const [name, setName] = useState(() => localStorage.getItem('kyd_player_name') || '');
+  const [lastRoom] = useState(() => getLastRoom());
   const [roomCode, setRoomCode] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     return params.get('room')?.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4) || '';
@@ -71,6 +72,20 @@ export function OnlineSetupScreen({ onBack }: OnlineSetupScreenProps) {
           <span>{errorMsg}</span>
           <button onClick={clearError} className="text-red-400 hover:text-red-600 font-bold text-lg leading-none">&times;</button>
         </div>
+      )}
+
+      {lastRoom && !connecting && (
+        <button
+          onClick={() => {
+            const playerName = name.trim() || (lang === 'ar' ? 'لاعب' : 'Player');
+            localStorage.setItem('kyd_player_name', playerName);
+            joinRoom(lastRoom, playerName);
+          }}
+          className="w-full py-4 mb-4 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-3"
+        >
+          <RotateCcw className="w-5 h-5" />
+          {t('rejoinRoom', lang)} — {lastRoom}
+        </button>
       )}
 
       <div className="space-y-4">

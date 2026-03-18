@@ -223,7 +223,13 @@ export default class GameRoom implements Party.Server {
 
   handleJoin(sender: Party.Connection, name: string) {
     // Reconnection: player already in the room (stable ID matched)
-    if (this.state.players.some(p => p.id === sender.id)) {
+    const existing = this.state.players.find(p => p.id === sender.id);
+    if (existing) {
+      const trimmedName = name.trim().slice(0, 20);
+      if (trimmedName && trimmedName !== existing.name) {
+        existing.name = trimmedName;
+        this.broadcast({ type: "room-state", state: this.getSnapshot() });
+      }
       return;
     }
 

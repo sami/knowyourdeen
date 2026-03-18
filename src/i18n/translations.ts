@@ -74,6 +74,7 @@ const translations = {
   needMorePlayers: { ar: "تحتاج لاعبين اثنين على الأقل", en: "Need at least 2 players" },
   connectionLost: { ar: "انقطع الاتصال", en: "Connection lost" },
   removedFromRoom: { ar: "تمت إزالتك من الغرفة بسبب انقطاع الاتصال", en: "You were removed from the room due to disconnection" },
+  rejoinRoom: { ar: "العودة للغرفة", en: "Rejoin Room" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

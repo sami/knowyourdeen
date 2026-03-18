@@ -33,6 +33,24 @@ function clearPlayerId(roomCode: string) {
   localStorage.removeItem(PLAYER_ID_PREFIX + roomCode);
 }
 
+const LAST_ROOM_KEY = 'kyd_last_room';
+
+function saveLastRoom(roomCode: string) {
+  localStorage.setItem(LAST_ROOM_KEY, JSON.stringify({ roomCode, ts: Date.now() }));
+}
+
+function clearLastRoom() {
+  localStorage.removeItem(LAST_ROOM_KEY);
+}
+
+export function getLastRoom(): string | null {
+  try {
+    const data = JSON.parse(localStorage.getItem(LAST_ROOM_KEY) || '');
+    if (Date.now() - data.ts < 60 * 60 * 1000) return data.roomCode;
+  } catch { /* ignore */ }
+  return null;
+}
+
 // Remove stale entries older than 1 hour
 function cleanupStalePlayerIds() {
   for (let i = localStorage.length - 1; i >= 0; i--) {
@@ -296,8 +314,6 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
       id: playerId,
     });
 
-    let joinSent = false;
-
     set({
       socket,
       myPlayerId: playerId,
@@ -308,25 +324,11 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
 
     socket.addEventListener('open', () => {
       set({ connected: true });
+      // Always send join — server handles reconnection (updates name if changed)
+      socket.send(JSON.stringify({ type: 'join', name: playerName }));
     });
 
-    socket.addEventListener('message', (event) => {
-      handleMessage(event);
-
-      // After the first room-state, decide whether to send join.
-      // If the server already recognises us (stable ID matched in onConnect),
-      // we're in the players list — no join needed.
-      // If we're NOT in the list, we're a new player and must join.
-      if (!joinSent) {
-        const isInRoom = get().players.some(p => p.id === playerId);
-        if (isInRoom) {
-          joinSent = true;
-        } else if (get().connected) {
-          joinSent = true;
-          socket.send(JSON.stringify({ type: 'join', name: playerName }));
-        }
-      }
-    });
+    socket.addEventListener('message', handleMessage);
 
     socket.addEventListener('close', () => {
       set({ connected: false });
@@ -338,11 +340,14 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
 
     createRoom: (playerName: string) => {
       const roomCode = generateRoomCode();
+      saveLastRoom(roomCode);
       connectToRoom(roomCode, playerName);
     },
 
     joinRoom: (roomCode: string, playerName: string) => {
-      connectToRoom(roomCode.toUpperCase(), playerName);
+      const code = roomCode.toUpperCase();
+      saveLastRoom(code);
+      connectToRoom(code, playerName);
     },
 
     startGame: () => {
@@ -369,6 +374,7 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
       const { socket, roomCode } = get();
       if (socket) socket.close();
       if (roomCode) clearPlayerId(roomCode);
+      clearLastRoom();
       set({ ...initialState });
     },
 
