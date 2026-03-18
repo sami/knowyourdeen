@@ -47,12 +47,17 @@ export default function App() {
     return params.get('room') ? 'online' : 'menu';
   });
   const { lang, gameScreen, currentTurn, setGameScreen } = useGameStore();
+  const { screen: onlineScreen, players, currentTurnPlayerId } = useOnlineStore();
   useWakeLock(appMode === 'local' && gameScreen === 'playing');
 
   const isRTL = lang === 'ar';
-  const currentTheme = appMode === 'local' && gameScreen === 'playing'
-    ? PLAYER_THEMES[currentTurn]
-    : PLAYER_THEMES[0];
+  const onlinePlayerIndex = players.findIndex(p => p.id === currentTurnPlayerId);
+  const currentTheme =
+    appMode === 'local' && gameScreen === 'playing'
+      ? PLAYER_THEMES[currentTurn]
+      : appMode === 'online' && onlineScreen === 'playing'
+        ? PLAYER_THEMES[onlinePlayerIndex % PLAYER_THEMES.length] || PLAYER_THEMES[0]
+        : PLAYER_THEMES[0];
 
   return (
     <main dir={isRTL ? 'rtl' : 'ltr'} className={`min-h-screen transition-colors duration-500 font-sans flex flex-col items-center ${currentTheme}`}>
