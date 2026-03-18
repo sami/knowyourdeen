@@ -2,7 +2,6 @@ import { RefreshCw, LogOut, Globe } from 'lucide-react';
 import { useGameStore } from '../../hooks/useGameStore';
 import { useOnlineStore } from '../../hooks/useOnlineStore';
 import { t } from '../../i18n/translations';
-import { ShareButtons } from '../ShareButtons';
 import { ShareScoreCard } from '../ScoreCard';
 import { ConnectionStatus } from './ConnectionStatus';
 
@@ -20,10 +19,9 @@ export function OnlineGameOverScreen({ onBack }: OnlineGameOverScreenProps) {
 
   const myRanking = rankings.find(r => r.id === myPlayerId);
   const myScore = myRanking?.score ?? 0;
-  const totalQuestions = questionsPerRound;
   const shareMessage = t('shareScoreMsg', lang)
     .replace('{score}', String(myScore))
-    .replace('{total}', String(totalQuestions));
+    .replace('{total}', String(questionsPerRound));
 
   const handleLeave = () => {
     disconnect();
@@ -32,7 +30,6 @@ export function OnlineGameOverScreen({ onBack }: OnlineGameOverScreenProps) {
 
   return (
     <div className="bg-white/90 backdrop-blur-lg p-10 rounded-3xl shadow-2xl w-full max-w-lg mx-auto text-center animate-fade-in">
-      {/* Language toggle */}
       <div className="flex justify-end mb-4">
         <button
           onClick={toggleLang}
@@ -75,10 +72,9 @@ export function OnlineGameOverScreen({ onBack }: OnlineGameOverScreenProps) {
         ))}
       </div>
 
-      <div className="mb-6 space-y-3">
+      <div className="mb-6">
         <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('share', lang)}</p>
-        <ShareScoreCard rankings={rankings} totalQuestions={questionsPerRound} lang={lang} />
-        <ShareButtons message={shareMessage} lang={lang} />
+        <ShareScoreCard rankings={rankings} totalQuestions={questionsPerRound} lang={lang} shareMessage={shareMessage} />
       </div>
 
       {isHost ? (

@@ -1,7 +1,6 @@
 import { RefreshCw } from 'lucide-react';
 import { useGameStore } from '../hooks/useGameStore';
 import { t } from '../i18n/translations';
-import { ShareButtons } from './ShareButtons';
 import { ShareScoreCard } from './ScoreCard';
 
 export function GameOverScreen() {
@@ -39,10 +38,9 @@ export function GameOverScreen() {
           </div>
         ))}
       </div>
-      <div className="mb-6 space-y-3">
+      <div className="mb-6">
         <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{t('share', lang)}</p>
-        <ShareScoreCard rankings={ranked} totalQuestions={questionsPerPlayer} lang={lang} />
-        <ShareButtons message={shareMessage} lang={lang} />
+        <ShareScoreCard rankings={ranked} totalQuestions={questionsPerPlayer} lang={lang} shareMessage={shareMessage} />
       </div>
       <button
         onClick={confirmReset}

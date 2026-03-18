@@ -75,6 +75,7 @@ const translations = {
   connectionLost: { ar: "انقطع الاتصال", en: "Connection lost" },
   removedFromRoom: { ar: "تمت إزالتك من الغرفة بسبب انقطاع الاتصال", en: "You were removed from the room due to disconnection" },
   rejoinRoom: { ar: "العودة للغرفة", en: "Rejoin Room" },
+  copyImage: { ar: "نسخ الصورة", en: "Copy Image" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
