@@ -160,6 +160,9 @@ export default class GameRoom implements Party.Server {
       case "restart-game":
         this.handleRestartGame(sender);
         break;
+      case "update-name":
+        this.handleUpdateName(sender, msg.name);
+        break;
     }
   }
 
@@ -266,6 +269,17 @@ export default class GameRoom implements Party.Server {
 
     // Reset room expiry alarm
     this.scheduleAlarm(ROOM_EXPIRY_LOBBY_MS, "room-expiry");
+  }
+
+  handleUpdateName(sender: Party.Connection, name: string) {
+    const player = this.state.players.find(p => p.id === sender.id);
+    if (!player) return;
+
+    const trimmedName = name.trim().slice(0, 20);
+    if (!trimmedName || trimmedName === player.name) return;
+
+    player.name = trimmedName;
+    this.broadcast({ type: "room-state", state: this.getSnapshot() });
   }
 
   handleStartGame(sender: Party.Connection) {

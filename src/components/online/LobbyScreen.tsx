@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Copy, Check, Crown, LogOut, Play, Minus, Plus, Globe } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Copy, Check, Crown, LogOut, Play, Minus, Plus, Globe, Pencil } from 'lucide-react';
 import { useGameStore } from '../../hooks/useGameStore';
 import { useOnlineStore } from '../../hooks/useOnlineStore';
 import { t } from '../../i18n/translations';
@@ -19,12 +19,19 @@ export function LobbyScreen({ onBack }: LobbyScreenProps) {
   const {
     roomCode, players, hostId, myPlayerId,
     questionsPerRound, maxPlayers,
-    startGame, setQuestionCount,
+    startGame, setQuestionCount, updateName,
   } = useOnlineStore();
   const [copied, setCopied] = useState(false);
+  const [editingName, setEditingName] = useState(false);
+  const [nameDraft, setNameDraft] = useState('');
+  const nameInputRef = useRef<HTMLInputElement>(null);
   const isRTL = lang === 'ar';
   const isHost = myPlayerId === hostId;
   const connectedCount = players.filter(p => p.connected).length;
+
+  useEffect(() => {
+    if (editingName) nameInputRef.current?.focus();
+  }, [editingName]);
 
   const handleCopy = async () => {
     try {
@@ -110,18 +117,51 @@ export function LobbyScreen({ onBack }: LobbyScreenProps) {
                 player.connected ? 'bg-white border border-gray-100' : 'bg-gray-50 opacity-50'
               }`}
             >
-              <div className="flex items-center gap-3">
-                <div className={`w-3 h-3 rounded-full ${player.connected ? 'bg-green-400' : 'bg-gray-300'}`} />
-                <span className="font-bold text-gray-800">{player.name}</span>
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <div className={`w-3 h-3 rounded-full shrink-0 ${player.connected ? 'bg-green-400' : 'bg-gray-300'}`} />
+                {player.id === myPlayerId && editingName ? (
+                  <input
+                    ref={nameInputRef}
+                    type="text"
+                    value={nameDraft}
+                    onChange={(e) => setNameDraft(e.target.value)}
+                    onBlur={() => {
+                      if (nameDraft.trim()) updateName(nameDraft);
+                      setEditingName(false);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        if (nameDraft.trim()) updateName(nameDraft);
+                        setEditingName(false);
+                      } else if (e.key === 'Escape') {
+                        setEditingName(false);
+                      }
+                    }}
+                    maxLength={20}
+                    className="font-bold text-gray-800 bg-teal-50 border border-teal-300 rounded-lg px-2 py-0.5 outline-none focus:border-teal-500 w-full"
+                  />
+                ) : (
+                  <span className="font-bold text-gray-800 truncate">{player.name}</span>
+                )}
                 {player.id === hostId && (
-                  <Crown className="w-4 h-4 text-yellow-500" />
+                  <Crown className="w-4 h-4 text-yellow-500 shrink-0" />
                 )}
               </div>
-              {player.id === myPlayerId && (
-                <span className="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded-full">
-                  {t('you', lang)}
-                </span>
-              )}
+              <div className="flex items-center gap-2 shrink-0">
+                {player.id === myPlayerId && !editingName && (
+                  <button
+                    onClick={() => { setNameDraft(player.name); setEditingName(true); }}
+                    className="p-1 text-gray-400 hover:text-teal-600 transition-colors"
+                  >
+                    <Pencil className="w-3.5 h-3.5" />
+                  </button>
+                )}
+                {player.id === myPlayerId && (
+                  <span className="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded-full">
+                    {t('you', lang)}
+                  </span>
+                )}
+              </div>
             </div>
           ))}
         </div>

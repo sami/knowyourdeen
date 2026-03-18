@@ -103,6 +103,7 @@ interface OnlineActions {
   nextQuestion: () => void;
   setQuestionCount: (count: number) => void;
   restartGame: () => void;
+  updateName: (name: string) => void;
   disconnect: () => void;
   setScreen: (screen: OnlineScreen) => void;
   clearError: () => void;
@@ -368,6 +369,14 @@ export const useOnlineStore = create<OnlineState & OnlineActions>()((set, get) =
 
     restartGame: () => {
       get().socket?.send(JSON.stringify({ type: 'restart-game' }));
+    },
+
+    updateName: (name: string) => {
+      const trimmed = name.trim().slice(0, 20);
+      if (trimmed) {
+        localStorage.setItem('kyd_player_name', trimmed);
+        get().socket?.send(JSON.stringify({ type: 'update-name', name: trimmed }));
+      }
     },
 
     disconnect: () => {

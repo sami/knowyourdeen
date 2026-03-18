@@ -29,6 +29,7 @@ export interface RoomStateSnapshot {
 // Client → Server
 export type ClientMessage =
   | { type: 'join'; name: string }
+  | { type: 'update-name'; name: string }
   | { type: 'start-game' }
   | { type: 'answer'; letter: string; lang: 'ar' | 'en' }
   | { type: 'next-question' }
