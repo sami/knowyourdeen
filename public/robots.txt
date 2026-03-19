@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://knowyourdeen.co.uk/sitemap.xml
