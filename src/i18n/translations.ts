@@ -77,6 +77,7 @@ const translations = {
   rejoinRoom: { ar: "العودة للغرفة", en: "Rejoin Room" },
   copyImage: { ar: "نسخ الصورة", en: "Copy Image" },
   connectionTimeout: { ar: "تعذر الاتصال بالخادم، حاول مرة أخرى", en: "Could not connect to server, please try again" },
+  playersOnline: { ar: "متصل الآن", en: "online now" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

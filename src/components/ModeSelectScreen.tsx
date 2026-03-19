@@ -1,6 +1,7 @@
 import { Play, Wifi, Globe } from 'lucide-react';
 import { MoonIcon } from './MoonIcon';
 import { useGameStore } from '../hooks/useGameStore';
+import { usePresence } from '../hooks/usePresence';
 import { t } from '../i18n/translations';
 
 interface ModeSelectScreenProps {
@@ -10,6 +11,7 @@ interface ModeSelectScreenProps {
 
 export function ModeSelectScreen({ onLocal, onOnline }: ModeSelectScreenProps) {
   const { lang, toggleLang } = useGameStore();
+  const onlineCount = usePresence();
   const isRTL = lang === 'ar';
 
   return (
@@ -67,6 +69,15 @@ export function ModeSelectScreen({ onLocal, onOnline }: ModeSelectScreenProps) {
             </>
           )}
         </button>
+        {onlineCount !== null && onlineCount > 0 && (
+          <p className="text-sm text-blue-600 font-medium flex items-center justify-center gap-1.5">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+            {onlineCount} {t('playersOnline', lang)}
+          </p>
+        )}
       </div>
     </div>
   );

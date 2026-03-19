@@ -2,6 +2,7 @@ import type * as Party from "partykit/server";
 import type { ClientMessage, ServerMessage, RoomStateSnapshot, OnlinePlayer, RoomPhase } from "./types";
 import { answerKeys } from "./answers";
 
+const PRESENCE_ROOM = "__presence__";
 const MAX_PLAYERS = 4;
 const TURN_TIMEOUT_SECONDS = 30;
 const ROOM_EXPIRY_LOBBY_MS = 15 * 60 * 1000;
@@ -113,9 +114,27 @@ export default class GameRoom implements Party.Server {
     return this.state.questionIds[this.state.currentQuestionIndex];
   }
 
+  // --- Presence ---
+
+  get isPresenceRoom() {
+    return this.room.id === PRESENCE_ROOM;
+  }
+
+  broadcastPresenceCount() {
+    const count = [...this.room.getConnections()].length;
+    this.room.broadcast(JSON.stringify({ type: "presence-count", count }));
+  }
+
   // --- Lifecycle ---
 
   onConnect(connection: Party.Connection, ctx: Party.ConnectionContext) {
+    if (this.isPresenceRoom) {
+      const count = [...this.room.getConnections()].length;
+      this.send(connection, { type: "presence-count" as any, count } as any);
+      this.broadcastPresenceCount();
+      return;
+    }
+
     // Check if this is a reconnecting player
     const existing = this.state.players.find(p => p.id === connection.id);
     if (existing) {
@@ -132,6 +151,7 @@ export default class GameRoom implements Party.Server {
   }
 
   onMessage(message: string | ArrayBuffer | ArrayBufferView, sender: Party.Connection) {
+    if (this.isPresenceRoom) return;
     if (typeof message !== "string") return;
 
     let msg: ClientMessage;
@@ -167,6 +187,11 @@ export default class GameRoom implements Party.Server {
   }
 
   onClose(connection: Party.Connection) {
+    if (this.isPresenceRoom) {
+      this.broadcastPresenceCount();
+      return;
+    }
+
     const player = this.state.players.find(p => p.id === connection.id);
     if (!player) return;
 
