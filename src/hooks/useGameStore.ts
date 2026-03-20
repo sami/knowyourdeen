@@ -152,6 +152,7 @@ export const useGameStore = create<GameState & GameActions>()(
         if (showExplanation || !question) return;
 
         const isCorrect = letter === question[lang].ans;
+        console.log('[DEBUG answer]', { selected: letter, correct: question[lang].ans, isCorrect, lang, questionId: question.id, question: question[lang].q });
         const newScores = [...playerScores];
         if (isCorrect) {
           newScores[currentTurn] += 1;
