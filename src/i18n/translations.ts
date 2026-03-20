@@ -41,6 +41,9 @@ const translations = {
   shareAppMsg: { ar: "تحدَّ معلوماتك الإسلامية مع اعرف دينك! https://knowyourdeen.co.uk", en: "Challenge your Islamic knowledge with Know Your Deen! https://knowyourdeen.co.uk" },
 
   // Mode select
+  readyPrompt: { ar: "دورك يا {name}!", en: "Your turn, {name}!" },
+  readyBtn: { ar: "جاهز!", en: "I'm Ready!" },
+
   playLocally: { ar: "اللعب محلياً", en: "Play Locally" },
   playOnline: { ar: "اللعب أونلاين", en: "Play Online" },
 

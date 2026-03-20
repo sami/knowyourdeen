@@ -23,6 +23,7 @@ interface GameState {
   selectedAnswer: string | null;
   showExplanation: boolean;
   showResetModal: boolean;
+  waitingForReady: boolean;
 }
 
 interface GameActions {
@@ -35,6 +36,7 @@ interface GameActions {
   startGame: () => void;
   handleAnswerSelect: (letter: string) => void;
   nextTurn: () => void;
+  confirmReady: () => void;
   confirmReset: () => void;
   activeQuestion: () => QuestionData | null;
 }
@@ -62,6 +64,7 @@ export const useGameStore = create<GameState & GameActions>()(
       selectedAnswer: null,
       showExplanation: false,
       showResetModal: false,
+      waitingForReady: false,
 
       setLang: (lang) => set({ lang }),
       setGameScreen: (screen) => set({ gameScreen: screen }),
@@ -123,6 +126,7 @@ export const useGameStore = create<GameState & GameActions>()(
           gameScreen: 'playing',
           selectedAnswer: null,
           showExplanation: false,
+          waitingForReady: numPlayers > 1,
         });
       },
 
@@ -176,8 +180,11 @@ export const useGameStore = create<GameState & GameActions>()(
           currentTurn: next,
           selectedAnswer: null,
           showExplanation: false,
+          waitingForReady: players.length > 1,
         });
       },
+
+      confirmReady: () => set({ waitingForReady: false }),
 
       confirmReset: () => {
         set({
@@ -191,6 +198,7 @@ export const useGameStore = create<GameState & GameActions>()(
           selectedAnswer: null,
           showExplanation: false,
           showResetModal: false,
+          waitingForReady: false,
         });
       },
     }),
@@ -207,6 +215,7 @@ export const useGameStore = create<GameState & GameActions>()(
         questionIndices: state.questionIndices,
         selectedAnswer: state.selectedAnswer,
         showExplanation: state.showExplanation,
+        waitingForReady: state.waitingForReady,
       }),
     }
   )
