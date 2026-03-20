@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { CheckCircle, XCircle, Clock, Globe } from 'lucide-react';
 import { useGameStore } from '../../hooks/useGameStore';
 import { useOnlineStore } from '../../hooks/useOnlineStore';
@@ -32,6 +33,16 @@ export function OnlinePlayingScreen() {
   if (!question) return null;
 
   const qData = question[lang];
+
+  const shuffledOptions = useMemo(() => {
+    const entries = Object.entries(qData.options) as [string, string][];
+    for (let i = entries.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [entries[i], entries[j]] = [entries[j], entries[i]];
+    }
+    return entries;
+  }, [questionId]);
+
   const currentPlayer = players.find(p => p.id === currentTurnPlayerId);
   const currentPlayerIndex = players.findIndex(p => p.id === currentTurnPlayerId);
   const cardTheme = CARD_THEMES[currentPlayerIndex % CARD_THEMES.length];
@@ -129,7 +140,7 @@ export function OnlinePlayingScreen() {
 
         {/* Answer buttons */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" role="radiogroup" aria-label={t('qNum', lang)}>
-          {Object.entries(qData.options).map(([letter, text]) => {
+          {shuffledOptions.map(([letter, text]) => {
             const isSelected = selectedAnswer === letter;
             const isCorrectAnswer = letter === qData.ans;
             let btnClass = 'border-2 border-gray-100 bg-gray-50 hover:bg-gray-100 text-gray-700';

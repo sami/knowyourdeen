@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import { useGameStore } from '../hooks/useGameStore';
 import { t } from '../i18n/translations';
@@ -23,6 +24,15 @@ export function PlayingScreen() {
   const cardTheme = CARD_THEMES[currentTurn];
   const qData = activeQuestion[lang];
   const isCorrect = selectedAnswer === qData.ans;
+
+  const shuffledOptions = useMemo(() => {
+    const entries = Object.entries(qData.options) as [string, string][];
+    for (let i = entries.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [entries[i], entries[j]] = [entries[j], entries[i]];
+    }
+    return entries;
+  }, [activeQuestion.id]);
 
   return (
     <div className="w-full max-w-2xl mx-auto flex flex-col h-full animate-fade-in">
@@ -68,7 +78,7 @@ export function PlayingScreen() {
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" role="radiogroup" aria-label={t('qNum', lang)}>
-          {Object.entries(qData.options).map(([letter, text]) => {
+          {shuffledOptions.map(([letter, text]) => {
             const isSelected = selectedAnswer === letter;
             const isCorrectAnswer = letter === qData.ans;
             let btnClass = 'border-2 border-gray-100 bg-gray-50 hover:bg-gray-100 text-gray-700';
