@@ -146,7 +146,7 @@ export function PlayingScreen() {
                   </span>
                 </div>
                 {!isCorrect && (
-                  <p className={`text-gray-700 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <p className={`text-base md:text-lg text-gray-700 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
                     {t('correctIs', lang)}{' '}
                     <span className="font-bold text-green-700">
                       {qData.ans} -{' '}
