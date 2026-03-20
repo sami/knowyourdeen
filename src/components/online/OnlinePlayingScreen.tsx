@@ -222,7 +222,7 @@ export function OnlinePlayingScreen() {
               )}
 
               <div className="bg-white/60 p-4 rounded-xl text-gray-800 mt-2">
-                <p className={`leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>{qData.exp}</p>
+                <p className={`text-base md:text-lg leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>{qData.exp}</p>
               </div>
             </div>
 
