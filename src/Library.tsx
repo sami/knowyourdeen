@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
-import { ArrowLeft, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, BookOpen, ChevronDown, ChevronUp, Globe } from 'lucide-react';
 import { questionsDB, CATEGORIES } from './data/questions';
+import { useGameStore } from './hooks/useGameStore';
 import { t } from './i18n/translations';
-import type { Lang } from './i18n/translations';
 
-export default function Library({ lang, onBack }: { lang: Lang; onBack: () => void }) {
+export default function Library() {
+  const { lang, toggleLang } = useGameStore();
   const isRTL = lang === 'ar';
   const [activeCategory, setActiveCategory] = useState<string>(CATEGORIES[0].id);
   const [expandedQuestionId, setExpandedQuestionId] = useState<number | null>(null);
@@ -27,13 +28,23 @@ export default function Library({ lang, onBack }: { lang: Lang; onBack: () => vo
             <BookOpen className="w-8 h-8 text-teal-600" />
             <h2 className="text-3xl font-extrabold text-teal-800">{t('libraryTitle', lang)}</h2>
           </div>
-          <button
-            onClick={onBack}
-            className={`flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-700 hover:bg-teal-100 rounded-xl transition-colors font-bold ${isRTL ? 'flex-row-reverse' : ''}`}
-          >
-            <ArrowLeft className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
-            {t('back', lang)}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-2 px-4 py-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all font-medium text-sm"
+              aria-label={t('switchLangLabel', lang)}
+            >
+              <Globe className="w-4 h-4" aria-hidden="true" />
+              {t('switchLangText', lang)}
+            </button>
+            <a
+              href="/"
+              className={`flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-700 hover:bg-teal-100 rounded-xl transition-colors font-bold ${isRTL ? 'flex-row-reverse' : ''}`}
+            >
+              <ArrowLeft className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+              {t('back', lang)}
+            </a>
+          </div>
         </div>
 
         {/* Category Tabs */}

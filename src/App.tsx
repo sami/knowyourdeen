@@ -42,11 +42,30 @@ function OnlineGame({ onBack }: { onBack: () => void }) {
 }
 
 export default function App() {
+  const { lang } = useGameStore();
+  const isRTL = lang === 'ar';
+
+  if (window.location.pathname === '/library') {
+    return (
+      <main dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen transition-colors duration-500 font-sans flex flex-col items-center bg-teal-50">
+        <div className="flex-1 w-full max-w-4xl p-4 flex flex-col justify-center pb-12">
+          <Library />
+        </div>
+        <Footer />
+        <Analytics />
+      </main>
+    );
+  }
+
+  return <GameApp />;
+}
+
+function GameApp() {
   const [appMode, setAppMode] = useState<AppMode>(() => {
     const params = new URLSearchParams(window.location.search);
     return params.get('room') ? 'online' : 'menu';
   });
-  const { lang, gameScreen, currentTurn, setGameScreen } = useGameStore();
+  const { lang, gameScreen, currentTurn } = useGameStore();
   const { screen: onlineScreen, players, currentTurnPlayerId } = useOnlineStore();
   useWakeLock(appMode === 'local' && gameScreen === 'playing');
 
@@ -73,7 +92,6 @@ export default function App() {
 
         {appMode === 'local' && (
           <>
-            {gameScreen === 'library' && <Library lang={lang} onBack={() => setGameScreen('setup')} />}
             {gameScreen === 'setup' && <SetupScreen onBack={() => setAppMode('menu')} />}
             {gameScreen === 'playing' && <PlayingScreen />}
             {gameScreen === 'finished' && <GameOverScreen />}

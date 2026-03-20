@@ -9,7 +9,7 @@ export interface Player {
   name: string;
 }
 
-type GameScreen = 'setup' | 'playing' | 'finished' | 'library';
+type GameScreen = 'setup' | 'playing' | 'finished';
 
 interface GameState {
   lang: Lang;

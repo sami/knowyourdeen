@@ -1,4 +1,4 @@
-import { Globe, Trash2, BookOpen } from 'lucide-react';
+import { Globe, Trash2 } from 'lucide-react';
 import { MoonIcon } from './MoonIcon';
 import { SharePopover } from './SharePopover';
 import { useGameStore } from '../hooks/useGameStore';
@@ -7,7 +7,7 @@ import { t } from '../i18n/translations';
 const MOON_COLORS = ['text-teal-600', 'text-blue-600', 'text-orange-600', 'text-purple-600'];
 
 export function TopBar() {
-  const { lang, gameScreen, currentTurn, toggleLang, setGameScreen, setShowResetModal } = useGameStore();
+  const { lang, gameScreen, currentTurn, toggleLang, setShowResetModal } = useGameStore();
 
   return (
     <div className="w-full max-w-4xl p-4 flex justify-between items-center z-10">
@@ -16,14 +16,6 @@ export function TopBar() {
         <h1 className="text-xl font-bold opacity-80">{t('title', lang)}</h1>
       </div>
       <div className="flex items-center gap-2">
-        <button
-          onClick={() => setGameScreen(gameScreen === 'library' ? 'setup' : 'library')}
-          className="p-2 bg-white/50 hover:bg-white/80 rounded-full shadow-sm backdrop-blur-sm transition-all text-teal-600"
-          title={t('libraryLabel', lang)}
-          aria-label={t('libraryLabel', lang)}
-        >
-          <BookOpen className="w-5 h-5" aria-hidden="true" />
-        </button>
         <SharePopover />
         <button
           onClick={() => setShowResetModal(true)}
