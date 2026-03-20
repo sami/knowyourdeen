@@ -210,7 +210,7 @@ export function OnlinePlayingScreen() {
               </div>
 
               {(!answeredCorrectly || wasTimeout) && (
-                <p className={`text-base md:text-lg text-gray-700 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
+                <p className={`text-lg md:text-xl text-gray-700 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
                   {t('correctIs', lang)}{' '}
                   <span className="font-bold text-green-700">
                     {qData.ans} -{' '}
@@ -222,7 +222,7 @@ export function OnlinePlayingScreen() {
               )}
 
               <div className="bg-white/60 p-4 rounded-xl text-gray-800 mt-2">
-                <p className={`text-base md:text-lg leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>{qData.exp}</p>
+                <p className={`text-lg md:text-xl leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>{qData.exp}</p>
               </div>
             </div>
 
