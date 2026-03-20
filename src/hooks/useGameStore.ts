@@ -31,6 +31,7 @@ interface GameActions {
   setGameScreen: (screen: GameScreen) => void;
   setShowResetModal: (show: boolean) => void;
   toggleLang: () => void;
+  setQuestionsPerPlayer: (count: number) => void;
   handlePlayerCountChange: (count: number) => void;
   updatePlayerName: (index: number, name: string) => void;
   startGame: () => void;
@@ -56,7 +57,7 @@ export const useGameStore = create<GameState & GameActions>()(
       lang: 'en',
       gameScreen: 'setup',
       players: [{ id: 0, name: '' }],
-      questionsPerPlayer: 0,
+      questionsPerPlayer: 10,
       currentTurn: 0,
       playerScores: [],
       playerQuestionIds: [],
@@ -85,6 +86,10 @@ export const useGameStore = create<GameState & GameActions>()(
         set({ lang: newLang, selectedAnswer: mappedAnswer });
       },
 
+      setQuestionsPerPlayer: (count) => {
+        set({ questionsPerPlayer: Math.max(5, Math.min(25, count)) });
+      },
+
       handlePlayerCountChange: (count) => {
         const { players } = get();
         const newPlayers = Array.from({ length: count }, (_, i) => ({
@@ -101,14 +106,15 @@ export const useGameStore = create<GameState & GameActions>()(
       },
 
       startGame: () => {
-        const { players, lang } = get();
+        const { players, lang, questionsPerPlayer } = get();
         const validPlayers = players.map((p, i) => ({
           ...p,
           name: p.name.trim() || (lang === 'ar' ? `لاعب ${i + 1}` : `Player ${i + 1}`),
         }));
 
         const numPlayers = validPlayers.length;
-        const qPerPlayer = Math.min(25, Math.floor(questionsDB.length / numPlayers));
+        const maxPerPlayer = Math.floor(questionsDB.length / numPlayers);
+        const qPerPlayer = Math.min(questionsPerPlayer, maxPerPlayer);
 
         const shuffledIds = shuffleArray(questionsDB.map((q) => q.id));
         const playerQuestionIds: number[][] = [];
@@ -190,7 +196,7 @@ export const useGameStore = create<GameState & GameActions>()(
         set({
           gameScreen: 'setup',
           players: [{ id: 0, name: '' }],
-          questionsPerPlayer: 0,
+          questionsPerPlayer: 10,
           currentTurn: 0,
           playerScores: [],
           playerQuestionIds: [],
@@ -203,7 +209,7 @@ export const useGameStore = create<GameState & GameActions>()(
       },
     }),
     {
-      name: 'kyd_save_v3',
+      name: 'kyd_save_v4',
       partialize: (state) => ({
         lang: state.lang,
         gameScreen: state.gameScreen,

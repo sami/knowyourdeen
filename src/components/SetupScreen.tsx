@@ -1,4 +1,4 @@
-import { Play, ArrowLeft, Globe } from 'lucide-react';
+import { Play, ArrowLeft, Globe, Minus, Plus } from 'lucide-react';
 import { MoonIcon } from './MoonIcon';
 import { useGameStore } from '../hooks/useGameStore';
 import { t } from '../i18n/translations';
@@ -10,7 +10,7 @@ interface SetupScreenProps {
 }
 
 export function SetupScreen({ onBack }: SetupScreenProps) {
-  const { lang, toggleLang, players, handlePlayerCountChange, updatePlayerName, startGame } = useGameStore();
+  const { lang, toggleLang, players, questionsPerPlayer, handlePlayerCountChange, updatePlayerName, setQuestionsPerPlayer, startGame } = useGameStore();
   const isRTL = lang === 'ar';
 
   return (
@@ -83,6 +83,30 @@ export function SetupScreen({ onBack }: SetupScreenProps) {
               />
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Questions per Player */}
+      <div className="mb-6">
+        <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">
+          {t('questionsPerPlayerLabel', lang)}
+        </p>
+        <div className="flex items-center justify-center gap-4">
+          <button
+            onClick={() => setQuestionsPerPlayer(questionsPerPlayer - 5)}
+            disabled={questionsPerPlayer <= 5}
+            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 rounded-full flex items-center justify-center transition-colors"
+          >
+            <Minus className="w-5 h-5" />
+          </button>
+          <span className="text-3xl font-black text-teal-800 w-16 text-center">{questionsPerPlayer}</span>
+          <button
+            onClick={() => setQuestionsPerPlayer(questionsPerPlayer + 5)}
+            disabled={questionsPerPlayer >= 25}
+            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 disabled:opacity-30 rounded-full flex items-center justify-center transition-colors"
+          >
+            <Plus className="w-5 h-5" />
+          </button>
         </div>
       </div>
 
