@@ -33,7 +33,7 @@ export function PlayingScreen() {
       [entries[i], entries[j]] = [entries[j], entries[i]];
     }
     return entries;
-  }, [activeQuestion.id]);
+  }, [activeQuestion.id, lang]);
 
   return (
     <div className="w-full max-w-2xl mx-auto flex flex-col h-full animate-fade-in">

@@ -41,7 +41,7 @@ export function OnlinePlayingScreen() {
       [entries[i], entries[j]] = [entries[j], entries[i]];
     }
     return entries;
-  }, [questionId]);
+  }, [questionId, lang]);
 
   const currentPlayer = players.find(p => p.id === currentTurnPlayerId);
   const currentPlayerIndex = players.findIndex(p => p.id === currentTurnPlayerId);
