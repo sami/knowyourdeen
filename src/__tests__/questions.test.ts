@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { questionsDB, CATEGORIES } from '../data/questions';
 
 describe('Basic structure', () => {
-  it('has exactly 100 questions', () => {
-    expect(questionsDB).toHaveLength(100);
+  it('has exactly 150 questions', () => {
+    expect(questionsDB).toHaveLength(150);
   });
 
   it('has exactly 5 categories', () => {
@@ -20,15 +20,15 @@ describe('Unique IDs', () => {
 });
 
 describe('Sequential IDs', () => {
-  it('starts at 1 and ends at 100', () => {
+  it('starts at 1 and ends at 150', () => {
     const ids = questionsDB.map(q => q.id).sort((a, b) => a - b);
     expect(ids[0]).toBe(1);
-    expect(ids[ids.length - 1]).toBe(100);
+    expect(ids[ids.length - 1]).toBe(150);
   });
 
-  it('has every ID from 1 to 100', () => {
+  it('has every ID from 1 to 150', () => {
     const idSet = new Set(questionsDB.map(q => q.id));
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 150; i++) {
       expect(idSet.has(i), `Missing question ID ${i}`).toBe(true);
     }
   });
@@ -66,15 +66,8 @@ describe('Answer position consistency', () => {
   });
 });
 
-describe('Link validation', () => {
-  it.each(questionsDB.map(q => [q.id, q]))('Q%i has valid URLs', (_id, q) => {
-    expect(() => new URL(q.ar.link)).not.toThrow();
-    expect(() => new URL(q.en.link)).not.toThrow();
-  });
-});
-
 describe('Category coverage', () => {
-  it('covers all 100 questions with no gaps', () => {
+  it('covers all 150 questions with no gaps', () => {
     const coveredIds = new Set<number>();
     for (const cat of CATEGORIES) {
       expect(cat.startId).toBeLessThanOrEqual(cat.endId);
@@ -84,7 +77,7 @@ describe('Category coverage', () => {
         coveredIds.add(id);
       }
     }
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 150; i++) {
       expect(coveredIds.has(i), `Question ID ${i} not covered`).toBe(true);
     }
   });

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { CheckCircle, XCircle, Clock, Globe } from 'lucide-react';
 import { useGameStore } from '../../hooks/useGameStore';
 import { useOnlineStore } from '../../hooks/useOnlineStore';
@@ -6,6 +6,7 @@ import { questionsDB } from '../../data/questions';
 import { t } from '../../i18n/translations';
 import { TurnTimer } from './TurnTimer';
 import { ConnectionStatus } from './ConnectionStatus';
+import { playCorrect, playWrong, playTimeout } from '../../hooks/useSoundEffects';
 
 const CARD_THEMES = [
   'bg-teal-100 text-teal-900 border-teal-200',
@@ -51,6 +52,12 @@ export function OnlinePlayingScreen() {
   const wasTimeout = timeoutPlayerId !== null;
   const totalQuestions = questionIds.length;
   const questionNum = currentQuestionIndex + 1;
+
+  useEffect(() => {
+    if (showExplanation) {
+      wasTimeout ? playTimeout() : answeredCorrectly ? playCorrect() : playWrong();
+    }
+  }, [showExplanation]);
 
   return (
     <div className="w-full max-w-2xl mx-auto flex flex-col h-full animate-fade-in">

@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import { useGameStore } from '../hooks/useGameStore';
 import { t } from '../i18n/translations';
+import { playCorrect, playWrong } from '../hooks/useSoundEffects';
 
 const CARD_THEMES = [
   'bg-teal-100 text-teal-900 border-teal-200',
@@ -25,6 +26,12 @@ export function PlayingScreen() {
   const cardTheme = CARD_THEMES[currentTurn];
   const qData = activeQuestion[lang];
   const isCorrect = selectedAnswer === qData.ans;
+
+  useEffect(() => {
+    if (showExplanation) {
+      isCorrect ? playCorrect() : playWrong();
+    }
+  }, [showExplanation]);
 
   const shuffledOptions = useMemo(() => {
     const entries = Object.entries(qData.options) as [string, string][];

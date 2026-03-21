@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { RefreshCw, LogOut, Globe } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { useGameStore } from '../../hooks/useGameStore';
 import { useOnlineStore } from '../../hooks/useOnlineStore';
 import { t } from '../../i18n/translations';
@@ -14,6 +16,10 @@ export function OnlineGameOverScreen({ onBack }: OnlineGameOverScreenProps) {
   const { rankings, myPlayerId, hostId, questionsPerRound, restartGame, disconnect } = useOnlineStore();
 
   const isHost = myPlayerId === hostId;
+
+  useEffect(() => {
+    confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 }, colors: ['#f59e0b', '#10b981', '#3b82f6', '#8b5cf6'] });
+  }, []);
 
   if (!rankings || rankings.length === 0) return null;
 
